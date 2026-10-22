@@ -2325,7 +2325,52 @@
 .child-launch{margin:24px 0;padding:22px;background:#eaf7ff;border:1px solid var(--border);border-radius:20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
 @media(max-width:650px){.child-grid{grid-template-columns:1fr}.child-launch{align-items:flex-start;flex-direction:column}.child-table{font-size:13px}}
 
-    </style>
+    
+/* EMERGENCY HEALTH DATA HANDOFF */
+.consent-box{background:#f2fbff;border:1px solid var(--border);border-radius:14px;padding:16px;margin-bottom:20px;line-height:1.55;font-size:14px}
+.consent-box label{display:flex;gap:12px;align-items:flex-start;cursor:pointer}
+.consent-box input{margin-top:4px;width:18px;height:18px;flex-shrink:0}
+.new-pill{display:inline-block;background:var(--green);color:#fff;font-size:12px;font-weight:800;padding:4px 10px;border-radius:50px;letter-spacing:.5px;margin-bottom:10px}
+.handoff-showcase{margin-top:55px;padding:38px;border-radius:28px;background:linear-gradient(135deg,#ffffff,#ecf8ff);border:1px solid var(--border);box-shadow:var(--shadow)}
+.handoff-showcase h3{font-size:30px;margin-bottom:10px}
+.handoff-showcase>p{color:var(--muted);line-height:1.7;max-width:780px}
+.handoff-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:28px 0}
+.handoff-step{background:#fff;border:1px solid var(--border);border-radius:18px;padding:18px}
+.handoff-step b{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--primary);color:#fff;margin-bottom:10px}
+.handoff-step h4{margin-bottom:6px}
+.handoff-step p{color:var(--muted);font-size:14px;line-height:1.5}
+.handoff-chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px}
+.handoff-chips span{background:#e7f7ff;color:var(--primary-dark);font-weight:700;font-size:14px;padding:8px 14px;border-radius:50px}
+.handoff-panel{text-align:left;background:#fff7f7;border:1px solid #fdd;border-radius:20px;padding:22px;margin:22px 0}
+.handoff-panel h3{margin-bottom:6px;color:var(--danger-dark)}
+.handoff-panel .form-group{margin-bottom:14px}
+.handoff-panel .consent-box{background:#fff;margin:14px 0 0}
+.handoff-preview{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}
+.handoff-preview div{background:#fff;border:1px solid var(--border);border-radius:12px;padding:10px 12px;font-size:14px;overflow-wrap:anywhere}
+.handoff-preview span{display:block;font-size:12px;color:var(--muted);margin-bottom:2px}
+.handoff-warn{background:#fff7df;color:#815900;border-radius:12px;padding:12px 14px;line-height:1.5;margin-top:12px;font-size:14px}
+.handoff-progress{text-align:left;margin:18px 0;display:none}
+.handoff-progress .hp-row{display:flex;gap:12px;align-items:center;padding:10px 4px;color:var(--muted);font-weight:600}
+.handoff-progress .hp-row.run{color:var(--primary-dark)}
+.handoff-progress .hp-row.done{color:#11875a}
+.handoff-progress .hp-row.fail{color:var(--danger-dark)}
+.hospital-receipt{display:none;text-align:left;margin:18px 0;border:2px solid var(--green);border-radius:20px;overflow:hidden;background:#fff}
+.hospital-receipt .hr-head{background:var(--green);color:#fff;padding:14px 18px;font-weight:800}
+.hospital-receipt .hr-body{padding:18px}
+.hospital-receipt .hr-foot{padding:12px 18px;background:#f4faff;font-size:13px;color:var(--muted);line-height:1.5}
+@media(max-width:950px){.handoff-flow{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.handoff-flow,.handoff-preview{grid-template-columns:1fr}.handoff-showcase{padding:24px}}
+
+/* PATIENT ID + HOSPITAL ACCESS */
+.patient-id-box{margin:18px 0 6px;padding:16px;border-radius:16px;background:#eaf7ff;border:1px dashed var(--primary)}
+.patient-id-box span{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+.patient-id-box strong{display:block;font-family:"Courier New",monospace;font-size:24px;letter-spacing:2px;color:var(--primary-dark);margin-bottom:10px;overflow-wrap:anywhere}
+.patient-id-box small{display:block;margin-top:10px;color:var(--muted);line-height:1.5}
+.patient-id-box .secondary-btn{padding:8px 16px;font-size:14px}
+.hospital-lookup{max-width:760px;margin:auto;background:#fff;border:1px solid var(--border);border-radius:26px;padding:34px;box-shadow:var(--shadow)}
+.access-log{margin-top:26px}
+.access-log div{padding:10px 14px;background:#f4faff;border-radius:12px;margin-top:8px;font-size:14px;color:var(--muted);overflow-wrap:anywhere}
+</style>
 
 </head>
 
@@ -2718,6 +2763,36 @@
                     <button class="primary-btn" onclick="showPage('children')">Open Child Healthcare →</button>
                 </div>
 
+                <div class="handoff-showcase">
+                    <span class="new-pill">NEW FEATURE</span>
+                    <h3>🏥 Smart Emergency Health Handoff</h3>
+                    <p>In an emergency, every minute counts. When you press the emergency button, Gramrahi automatically sends your key health details to the hospital you are being taken to, so doctors know your history before you reach the door.</p>
+
+                    <div class="handoff-flow">
+                        <div class="handoff-step"><b>1</b><h4>Save once</h4><p>Add your health profile and Ayushman card number during login.</p></div>
+                        <div class="handoff-step"><b>2</b><h4>Press Emergency</h4><p>Request an ambulance. The nearest hospital is selected automatically.</p></div>
+                        <div class="handoff-step"><b>3</b><h4>Auto-sent</h4><p>Your details and location reach the hospital instantly.</p></div>
+                        <div class="handoff-step"><b>4</b><h4>Ready on arrival</h4><p>The team knows your history, allergies and insurance cover.</p></div>
+                    </div>
+
+                    <div class="handoff-chips">
+                        <span>🎂 Age</span><span>🩺 Previous health issues</span><span>💊 Current treatment</span><span>⚠️ Allergies</span><span>🩸 Blood group</span><span>🪪 Ayushman card</span><span>📞 Emergency contact</span><span>📍 Live location</span>
+                    </div>
+
+                    <div class="patient-id-box" style="max-width:760px">
+                        <span>🪪 Unique Gramrahi Patient ID</span>
+                        <strong style="font-size:20px">GRM-XXXX-XXXX</strong>
+                        <small style="margin-top:0">Every patient gets a unique ID when they complete their profile. At any hospital, giving this ID is enough: the hospital sees your health record instantly, without paperwork.</small>
+                    </div>
+
+                    <div class="hero-buttons" style="margin-top:0">
+                        <button class="primary-btn" onclick="showPage('ambulance')">See it in action →</button>
+                        <button class="secondary-btn" onclick="showPage('login')">Get my Patient ID</button>
+                        <button class="secondary-btn" onclick="showPage('hospital')">🏥 Hospital check-in with ID</button>
+                    </div>
+                    <p class="child-note">Details are shared only with your consent, and only with the hospital you are sent to.</p>
+                </div>
+
                 <div style="margin-top:55px;" class="emergency-banner">
 
                     <div>
@@ -2726,9 +2801,7 @@
                             🚨 Need Emergency Medical Help?
                         </h2>
 
-                        <p>
-                            Request emergency assistance quickly.
-                        </p>
+                        <p>Request emergency assistance quickly. Your saved health details reach the hospital automatically.</p>
 
                     </div>
 
@@ -3138,6 +3211,29 @@
 
                 </div>
 
+                <div class="form-group">
+                    <label>Previous Health Issues / Surgeries</label>
+                    <input id="pastIssues" type="text" maxlength="250" placeholder="Example: Typhoid (2023), appendix surgery">
+                </div>
+
+                <div class="form-group">
+                    <label>Current Treatment / Regular Medicines</label>
+                    <input id="currentTreatment" type="text" maxlength="250" placeholder="Example: Metformin daily, inhaler when needed">
+                </div>
+
+                <div class="form-group">
+                    <label>Ayushman Bharat (PM-JAY) Card / ABHA Number</label>
+                    <input id="ayushmanId" type="text" maxlength="20" placeholder="Enter card number (optional)">
+                </div>
+
+                <div class="consent-box">
+                    <label>
+                        <input type="checkbox" id="shareConsent">
+                        <span><strong>Emergency data sharing:</strong> I agree that Gramrahi may send the details above to the hospital I am sent to when I press the emergency button, so treatment can start without delay. I can change this at any time.</span>
+                    </label>
+                </div>
+
+
 
                 <div class="form-navigation">
 
@@ -3432,6 +3528,13 @@
                     </p>
 
 
+                    <div class="patient-id-box">
+                        <span>Your Gramrahi Patient ID</span>
+                        <strong id="profilePatientId">Complete your profile to get an ID</strong>
+                        <button class="secondary-btn" onclick="copyPatientId()">📋 Copy ID</button>
+                        <small>Show or tell this ID at any hospital and they can see your health details instantly, with no files to carry.</small>
+                    </div>
+
                     <button class="primary-btn" style="margin-top:20px;" onclick="showPage('login'); showStep(3)">
 
                         Edit Profile
@@ -3529,6 +3632,27 @@
                             </strong>
 
                         </div>
+
+                        <div class="health-item">
+                            <span>Ayushman Card / ABHA</span>
+                            <strong id="profileAyushman">Not Added</strong>
+                        </div>
+
+                        <div class="health-item">
+                            <span>Previous Health Issues</span>
+                            <strong id="profilePast">Not Added</strong>
+                        </div>
+
+                        <div class="health-item">
+                            <span>Current Treatment</span>
+                            <strong id="profileTreatment">Not Added</strong>
+                        </div>
+
+                        <div class="health-item">
+                            <span>Emergency Data Sharing</span>
+                            <strong id="profileShare">Off</strong>
+                        </div>
+
 
 
                     </div>
@@ -3930,6 +4054,31 @@
 
                 <div class="location-box" id="childEmergencySummary" style="display:none;text-align:left;"></div>
 
+                <div class="handoff-panel">
+                    <h3>🏥 Emergency Health Handoff</h3>
+                    <p style="margin-bottom:14px;color:var(--muted);line-height:1.6">When you request an ambulance, your saved health details are sent automatically to the hospital you are taken to, so doctors are ready when you arrive.</p>
+
+                    <div class="form-group">
+                        <label for="handoffPatient">Who needs help?</label>
+                        <select id="handoffPatient" onchange="renderHandoffPreview()"></select>
+                    </div>
+
+                    <p class="child-note" id="handoffHospitalAuto" style="margin:0 0 12px;font-weight:700;color:var(--primary-dark)"></p>
+
+                    <div id="handoffPreview"></div>
+
+                    <div class="consent-box">
+                        <label>
+                            <input type="checkbox" id="handoffShare">
+                            <span>Send these health details to the hospital when I request the ambulance.</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="handoff-progress" id="handoffProgress" aria-live="polite"></div>
+                <div class="hospital-receipt" id="handoffReceipt"></div>
+
+
                 <button class="secondary-btn" style="margin-bottom:15px;" onclick="getLocation()">
 
                     📍 Share Current Location
@@ -4123,6 +4272,58 @@
     </div>
 
 
+
+    <!-- =====================================
+       HOSPITAL ACCESS (PATIENT ID LOOKUP)
+  ====================================== -->
+
+    <div class="page" id="hospital">
+
+        <nav>
+            <div class="nav-container">
+                <div class="brand" onclick="showPage('home')">
+                    <div class="brand-logo">🏥</div>
+                    <div>
+                        <h2>Gramrahi</h2>
+                        <span>Hospital Check-in</span>
+                    </div>
+                </div>
+                <button class="secondary-btn" onclick="goBack()">← Back</button>
+            </div>
+        </nav>
+
+        <div class="page-header">
+            <h1>🏥 Hospital Patient Check-in</h1>
+            <p>Enter the patient's Gramrahi ID to view their health details instantly.</p>
+        </div>
+
+        <div class="content-area">
+            <div class="hospital-lookup">
+                <div class="form-group">
+                    <label for="lookupHospital">Hospital</label>
+                    <select id="lookupHospital">
+                        <option>Community Health Centre</option>
+                        <option>Primary Health Centre</option>
+                        <option>District Government Hospital</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="lookupId">Patient ID</label>
+                    <input id="lookupId" type="text" maxlength="13" placeholder="GRM-XXXX-XXXX" style="text-transform:uppercase" onkeypress="if(event.key==='Enter')lookupPatient()">
+                </div>
+                <button class="primary-btn" onclick="lookupPatient()">Fetch patient details →</button>
+
+                <div id="lookupResult" aria-live="polite" style="margin-top:24px"></div>
+
+                <div class="access-log">
+                    <h3>Recent record access on this device</h3>
+                    <div id="accessLog"></div>
+                </div>
+
+                <p class="child-note">Demo: patient records are looked up from this browser's storage. A live version needs hospital staff sign-in and a secure server, and every access should be logged for the patient to see.</p>
+            </div>
+        </div>
+    </div>
 
     <!-- =====================================
        CONTACT DIRECTORY
@@ -4741,6 +4942,7 @@
             );
 
 
+            saveEmergencyExtras();
             showToast(
                 "Profile completed successfully!"
             );
@@ -5582,6 +5784,375 @@
     </script>
 
 
+
+<script>
+/* ============================================================
+   EMERGENCY HEALTH DATA HANDOFF
+   Set HANDOFF_ENDPOINT to your hospital-integration API to send
+   real requests. While it is null the site runs in demo mode:
+   the transfer is simulated and nothing leaves the browser.
+============================================================ */
+const HANDOFF_ENDPOINT = null; // e.g. "https://api.example.org/v1/emergency-handoff"
+const HANDOFF_LOG_KEY = "gramrahiEmergencyLog_v1";
+const HANDOFF_HOSPITALS = [
+    {id: "chc", name: "Community Health Centre", km: 1.2},
+    {id: "phc", name: "Primary Health Centre", km: 2.8},
+    {id: "dh", name: "District Government Hospital", km: 5.4}
+];
+
+function hsGet(key, fallback) {
+    const v = localStorage.getItem(key);
+    return (v === null || v === "") ? (fallback || "") : v;
+}
+function hsMask(id) {
+    if (!id) return "Not added";
+    return id.length > 4 ? "•••• " + id.slice(-4) : id;
+}
+function hsSleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+function saveEmergencyExtras() {
+    const val = id => { const el = document.getElementById(id); return el ? el.value.trim() : ""; };
+    localStorage.setItem("pastIssues", val("pastIssues"));
+    localStorage.setItem("currentTreatment", val("currentTreatment"));
+    localStorage.setItem("ayushmanId", val("ayushmanId"));
+    const c = document.getElementById("shareConsent");
+    localStorage.setItem("shareConsent", c && c.checked ? "yes" : "no");
+    registerPatient();
+}
+
+/* Profile page: fill the new fields */
+const _origLoadPatientProfile = loadPatientProfile;
+window.loadPatientProfile = function () {
+    _origLoadPatientProfile();
+    const set = (id, v) => { const el = document.getElementById(id); if (el) el.innerText = v; };
+    set("profileAyushman", hsMask(hsGet("ayushmanId")));
+    set("profilePast", hsGet("pastIssues", "Not Added"));
+    set("profileTreatment", hsGet("currentTreatment", "Not Added"));
+    set("profileShare", hsGet("shareConsent") === "yes" ? "On — sent to hospital in emergencies" : "Off");
+};
+
+/* Refresh the emergency panel whenever the ambulance page opens */
+const _origShowPage = showPage;
+window.showPage = function (id) {
+    _origShowPage(id);
+    if (id === "ambulance") refreshHandoffPanel();
+};
+
+function refreshHandoffPanel() {
+    const patientSel = document.getElementById("handoffPatient");
+    if (!patientSel) return;
+    const oldPatient = patientSel.value;
+
+    const me = hsGet("patientName", "Myself");
+    let opts = `<option value="self">${escapeChildText(me)} (myself)</option>`;
+    getChildren().forEach(c => {
+        opts += `<option value="${escapeChildText(c.id)}">${escapeChildText(c.name)} (child, ${c.ageMonths} months)</option>`;
+    });
+    patientSel.innerHTML = opts;
+    if ([...patientSel.options].some(o => o.value === oldPatient)) patientSel.value = oldPatient;
+
+    const auto = nearestHospital();
+    document.getElementById("handoffHospitalAuto").textContent = "📍 Sent automatically to the nearest hospital: " + auto.name + " (" + auto.km + " km)";
+
+    document.getElementById("handoffShare").checked = hsGet("shareConsent") === "yes";
+    renderHandoffPreview();
+}
+
+function handoffPatientData() {
+    const who = document.getElementById("handoffPatient").value;
+    if (who !== "self") {
+        const c = getChildren().find(x => x.id === who);
+        if (c) return {
+            type: "child", patientId: hsGet("patientId"), name: c.name, age: c.ageMonths + " months",
+            gender: c.sex === "female" ? "Female" : "Male",
+            weight: c.weight ? c.weight + " kg" : "",
+            allergies: c.allergies || "None added",
+            conditions: c.conditions || "None added",
+            pastIssues: hsGet("pastIssues", "None added"),
+            treatment: c.conditions || "None added",
+            bloodGroup: "",
+            ayushman: hsGet("ayushmanId"),
+            emergencyContact: hsGet("emergencyContact"),
+            phone: hsGet("patientPhone")
+        };
+    }
+    if (!hsGet("patientName")) return null;
+    return {
+        type: "adult", patientId: hsGet("patientId"), name: hsGet("patientName"), age: hsGet("patientAge") + " years",
+        gender: hsGet("patientGender"), bloodGroup: hsGet("bloodGroup"),
+        conditions: hsGet("medicalCondition", "None added"),
+        allergies: hsGet("allergies", "None added"),
+        pastIssues: hsGet("pastIssues", "None added"),
+        treatment: hsGet("currentTreatment", "None added"),
+        ayushman: hsGet("ayushmanId"),
+        emergencyContact: hsGet("emergencyContact"),
+        phone: hsGet("patientPhone")
+    };
+}
+
+function renderHandoffPreview() {
+    const box = document.getElementById("handoffPreview");
+    const p = handoffPatientData();
+    if (!p) {
+        box.innerHTML = `<div class="handoff-warn">No health profile saved yet, so no health details can be sent. You can still request an ambulance, but please <button class="card-link" onclick="showPage('login');showStep(3)">complete your health profile</button> to use this feature.</div>`;
+        return;
+    }
+    const item = (l, v) => `<div><span>${l}</span>${escapeChildText(v || "Not added")}</div>`;
+    box.innerHTML = `<p class="child-note" style="margin-top:0">Details that will be sent:</p><div class="handoff-preview">` +
+        item("Gramrahi Patient ID", p.patientId) + item("Name", p.name) + item("Age", p.age) + item("Gender", p.gender) + item("Blood group", p.bloodGroup) +
+        item("Previous health issues", p.pastIssues) + item("Current treatment", p.treatment) +
+        item("Medical conditions", p.conditions) + item("Allergies", p.allergies) +
+        item("Ayushman card / ABHA", hsMask(p.ayushman)) + item("Emergency contact", p.emergencyContact) +
+        `</div>`;
+}
+
+function handoffLocation() {
+    const t = (document.getElementById("locationStatus") || {}).textContent || "";
+    const m = t.match(/Latitude:\s*(-?[\d.]+)[\s\S]*?Longitude:\s*(-?[\d.]+)/);
+    return m ? {lat: Number(m[1]), lng: Number(m[2])} : null;
+}
+
+function handoffRow(i, text, state) {
+    const icon = {wait: "○", run: "⏳", done: "✅", fail: "❌"}[state];
+    const row = document.getElementById("hp" + i);
+    if (row) { row.className = "hp-row " + state; row.innerHTML = `<span>${icon}</span><span>${text}</span>`; }
+}
+
+async function transmitHandoff(payload) {
+    if (HANDOFF_ENDPOINT) {
+        const r = await fetch(HANDOFF_ENDPOINT, {
+            method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(payload)
+        });
+        if (!r.ok) throw new Error("Hospital system returned " + r.status);
+        return {simulated: false, response: await r.json().catch(() => ({}))};
+    }
+    await hsSleep(1100);
+    return {simulated: true};
+}
+
+window.requestAmbulance = async function () {
+    if (!confirm("Are you sure you want to request emergency ambulance assistance?")) return;
+
+    const btn = document.querySelector(".request-ambulance");
+    const hosp = nearestHospital();
+    const share = document.getElementById("handoffShare").checked;
+    const patient = handoffPatientData();
+    const childBox = document.getElementById("childEmergencySummary");
+
+    const payload = {
+        requestId: "GRM-" + Date.now().toString(36).toUpperCase(),
+        sentAt: new Date().toISOString(),
+        hospital: hosp.name,
+        healthDataShared: !!(share && patient),
+        patient: (share && patient) ? patient : {phone: hsGet("patientPhone")},
+        location: handoffLocation(),
+        incident: (childBox && childBox.style.display !== "none") ? childBox.textContent : ""
+    };
+
+    const prog = document.getElementById("handoffProgress");
+    const rec = document.getElementById("handoffReceipt");
+    rec.style.display = "none"; rec.innerHTML = "";
+    prog.style.display = "block";
+    prog.innerHTML = [0, 1, 2, 3].map(i => `<div class="hp-row wait" id="hp${i}"></div>`).join("");
+    const labels = [
+        "Ambulance request created",
+        share && patient ? "Collecting health profile and Ayushman card details" : "Preparing request (health details not shared)",
+        "Sending to " + hosp.name,
+        "Hospital acknowledged"
+    ];
+    labels.forEach((t, i) => handoffRow(i, t, "wait"));
+    btn.disabled = true;
+
+    try {
+        handoffRow(0, labels[0], "run"); await hsSleep(500); handoffRow(0, labels[0], "done");
+        handoffRow(1, labels[1], "run"); await hsSleep(600); handoffRow(1, labels[1], "done");
+        handoffRow(2, labels[2], "run");
+        const res = await transmitHandoff(payload);
+        handoffRow(2, labels[2], "done");
+        handoffRow(3, labels[3] + (res.simulated ? " (demo)" : ""), "run"); await hsSleep(500);
+        handoffRow(3, labels[3] + (res.simulated ? " (demo)" : ""), "done");
+
+        try {
+            const log = JSON.parse(localStorage.getItem(HANDOFF_LOG_KEY) || "[]");
+            log.unshift({requestId: payload.requestId, sentAt: payload.sentAt, hospital: payload.hospital, shared: payload.healthDataShared});
+            localStorage.setItem(HANDOFF_LOG_KEY, JSON.stringify(log.slice(0, 10)));
+        } catch (_) {}
+
+        showHospitalReceipt(payload, hosp, res.simulated);
+        showToast("Emergency request sent to " + hosp.name + ".");
+    } catch (err) {
+        const failedIdx = [0, 1, 2, 3].find(i => !document.getElementById("hp" + i).classList.contains("done")) ?? 2;
+        handoffRow(failedIdx, "Could not reach the hospital system", "fail");
+        rec.style.display = "block";
+        rec.style.borderColor = "var(--danger)";
+        rec.innerHTML = `<div class="hr-head" style="background:var(--danger)">⚠️ Request not delivered</div><div class="hr-body"><p>Please call for help directly now.</p><div class="child-actions"><button class="primary-btn" onclick="callNumber('108')">Call 108</button><button class="primary-btn" onclick="callNumber('112')">Call 112</button></div></div>`;
+    } finally {
+        btn.disabled = false;
+    }
+};
+
+function showHospitalReceipt(p, hosp, simulated) {
+    const rec = document.getElementById("handoffReceipt");
+    const d = p.patient || {};
+    const row = (l, v) => v ? `<div><span>${l}</span>${escapeChildText(v)}</div>` : "";
+    let body;
+    if (p.healthDataShared) {
+        body = `<div class="handoff-preview">` +
+            row("Gramrahi Patient ID", d.patientId) + row("Patient", d.name) + row("Age", d.age) + row("Gender", d.gender) + row("Blood group", d.bloodGroup) +
+            row("Previous health issues", d.pastIssues) + row("Current treatment", d.treatment) +
+            row("Medical conditions", d.conditions) + row("Allergies", d.allergies) +
+            row("Ayushman card / ABHA", d.ayushman) + row("Emergency contact", d.emergencyContact) +
+            row("Phone", d.phone) +
+            row("Location", p.location ? p.location.lat.toFixed(4) + ", " + p.location.lng.toFixed(4) : "Not shared") +
+            row("Incident details", p.incident) + `</div>`;
+    } else {
+        body = `<p>Health details were <strong>not</strong> shared. Only the callback number${p.location ? " and location" : ""} reached the hospital.</p>`;
+    }
+    rec.style.display = "block";
+    rec.style.borderColor = "var(--green)";
+    rec.innerHTML = `<div class="hr-head">🏥 ${escapeChildText(hosp.name)} — Incoming emergency patient</div>
+        <div class="hr-body"><p style="margin-bottom:10px"><strong>Reference:</strong> ${escapeChildText(p.requestId)}</p>${body}
+        <div class="child-actions"><button class="primary-btn" onclick="callNumber('108')">🚑 Call 108 now</button></div></div>
+        <div class="hr-foot">${simulated ? "Demo mode: this shows what the hospital's reception screen would display. No real hospital or ambulance has been contacted. In a real emergency, call 108 or 112." : "Delivered to the hospital system. If help has not arrived, call 108 or 112."}</div>`;
+    rec.scrollIntoView({behavior: "smooth", block: "center"});
+}
+</script>
+
+<script>
+/* ============================================================
+   UNIQUE PATIENT ID + HOSPITAL LOOKUP (demo registry in browser)
+============================================================ */
+const PATIENT_REGISTRY_KEY = "gramrahiPatientRegistry_v1";
+const ACCESS_LOG_KEY = "gramrahiAccessLog_v1";
+let pendingLookupId = null;
+
+function nearestHospital() {
+    return [...HANDOFF_HOSPITALS].sort((a, b) => a.km - b.km)[0];
+}
+function getRegistry() {
+    try { return JSON.parse(localStorage.getItem(PATIENT_REGISTRY_KEY) || "{}"); }
+    catch (_) { return {}; }
+}
+function generatePatientId() {
+    const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"; // no 0/O/1/I to avoid mix-ups
+    const reg = getRegistry();
+    let id;
+    do {
+        const n = new Uint32Array(8);
+        (window.crypto || {getRandomValues: a => a.map(() => Math.random() * 4294967296)}).getRandomValues(n);
+        const t = Array.from(n, v => chars[v % chars.length]).join("");
+        id = "GRM-" + t.slice(0, 4) + "-" + t.slice(4);
+    } while (reg[id]);
+    return id;
+}
+function registerPatient() {
+    if (!hsGet("patientName")) return;
+    let id = hsGet("patientId");
+    if (!id) { id = generatePatientId(); localStorage.setItem("patientId", id); }
+    const reg = getRegistry();
+    reg[id] = {
+        id: id, name: hsGet("patientName"), age: hsGet("patientAge"), gender: hsGet("patientGender"),
+        bloodGroup: hsGet("bloodGroup"), conditions: hsGet("medicalCondition", "None added"),
+        allergies: hsGet("allergies", "None added"), pastIssues: hsGet("pastIssues", "None added"),
+        treatment: hsGet("currentTreatment", "None added"), ayushman: hsGet("ayushmanId"),
+        emergencyContact: hsGet("emergencyContact"), phone: hsGet("patientPhone"),
+        consent: hsGet("shareConsent"), updatedAt: new Date().toISOString()
+    };
+    localStorage.setItem(PATIENT_REGISTRY_KEY, JSON.stringify(reg));
+    const el = document.getElementById("profilePatientId");
+    if (el) el.innerText = id;
+}
+
+/* show the ID on the profile page (also issues one to profiles created earlier) */
+const _loadProfileV2 = window.loadPatientProfile;
+window.loadPatientProfile = function () {
+    _loadProfileV2();
+    if (hsGet("patientName") && !hsGet("patientId")) registerPatient();
+    const el = document.getElementById("profilePatientId");
+    if (el) el.innerText = hsGet("patientId", "Complete your profile to get an ID");
+};
+
+function copyPatientId() {
+    const id = hsGet("patientId");
+    if (!id) { showToast("Complete your profile first to get your Patient ID."); return; }
+    if (navigator.clipboard) navigator.clipboard.writeText(id).then(() => showToast("Patient ID copied: " + id), () => showToast("Your ID: " + id));
+    else showToast("Your ID: " + id);
+}
+
+/* ---------- hospital side ---------- */
+function logAccess(entry) {
+    try {
+        const log = JSON.parse(localStorage.getItem(ACCESS_LOG_KEY) || "[]");
+        log.unshift(entry);
+        localStorage.setItem(ACCESS_LOG_KEY, JSON.stringify(log.slice(0, 15)));
+    } catch (_) {}
+    renderAccessLog();
+}
+function renderAccessLog() {
+    const box = document.getElementById("accessLog");
+    if (!box) return;
+    let log = [];
+    try { log = JSON.parse(localStorage.getItem(ACCESS_LOG_KEY) || "[]"); } catch (_) {}
+    box.innerHTML = log.length
+        ? log.map(l => `<div>${escapeChildText(l.id)} viewed by ${escapeChildText(l.hospital)} · ${new Date(l.time).toLocaleString()}</div>`).join("")
+        : `<div>No records accessed yet.</div>`;
+}
+
+function lookupPatient() {
+    const out = document.getElementById("lookupResult");
+    const id = document.getElementById("lookupId").value.trim().toUpperCase();
+    if (!/^GRM-[A-Z0-9]{4}-[A-Z0-9]{4}$/.test(id)) {
+        out.innerHTML = `<div class="child-status red">Enter a valid ID in the format GRM-XXXX-XXXX.</div>`;
+        return;
+    }
+    const rec = getRegistry()[id];
+    if (!rec) {
+        out.innerHTML = `<div class="child-status red">No patient found with this ID. Please check the ID and try again.</div>`;
+        return;
+    }
+    if (rec.consent !== "yes") {
+        pendingLookupId = id;
+        out.innerHTML = `<div class="child-status yellow"><strong>Patient approval needed.</strong><br>This patient has not switched on automatic sharing. Ask the patient for the one-time code sent to their registered mobile (demo code: 123456).</div>
+            <div class="form-group" style="margin-top:14px"><label for="lookupOtp">One-time code</label><input id="lookupOtp" type="text" maxlength="6" placeholder="Enter code"></div>
+            <button class="primary-btn" onclick="verifyLookupOtp()">Verify and view details</button>`;
+        return;
+    }
+    showPatientRecord(rec);
+}
+
+function verifyLookupOtp() {
+    const code = document.getElementById("lookupOtp").value.trim();
+    if (code !== "123456") { showToast("Incorrect code."); return; }
+    const rec = getRegistry()[pendingLookupId];
+    if (rec) showPatientRecord(rec);
+}
+
+function showPatientRecord(rec) {
+    const out = document.getElementById("lookupResult");
+    const hospital = document.getElementById("lookupHospital").value;
+    const item = (l, v) => `<div><span>${l}</span>${escapeChildText(v || "Not added")}</div>`;
+    const kids = (rec.id === hsGet("patientId")) ? getChildren() : [];
+    out.innerHTML = `<div class="hospital-receipt" style="display:block">
+        <div class="hr-head">✅ ${escapeChildText(rec.name)} · ${escapeChildText(rec.id)}</div>
+        <div class="hr-body"><div class="handoff-preview">` +
+        item("Age", rec.age + " years") + item("Gender", rec.gender) + item("Blood group", rec.bloodGroup) +
+        item("Medical conditions", rec.conditions) + item("Previous health issues", rec.pastIssues) +
+        item("Current treatment", rec.treatment) + item("Allergies", rec.allergies) +
+        item("Ayushman card / ABHA", rec.ayushman) + item("Emergency contact", rec.emergencyContact) +
+        item("Phone", rec.phone) + `</div>` +
+        (kids.length ? `<h4 style="margin:16px 0 6px">Children linked to this ID</h4><div class="handoff-preview">` +
+            kids.map(c => item(c.name, c.ageMonths + " months · Allergies: " + (c.allergies || "None added") + " · Conditions: " + (c.conditions || "None added"))).join("") + `</div>` : "") +
+        `</div><div class="hr-foot">Record shared with ${escapeChildText(hospital)}. This access has been logged. Last updated ${new Date(rec.updatedAt).toLocaleString()}.</div></div>`;
+    logAccess({id: rec.id, hospital: hospital, time: new Date().toISOString()});
+    pendingLookupId = null;
+}
+
+const _showPageV3 = window.showPage;
+window.showPage = function (id) {
+    _showPageV3(id);
+    if (id === "hospital") renderAccessLog();
+};
+</script>
 </body>
 
 </html>
