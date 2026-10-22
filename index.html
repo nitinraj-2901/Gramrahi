@@ -2367,9 +2367,6 @@
 .patient-id-box strong{display:block;font-family:"Courier New",monospace;font-size:24px;letter-spacing:2px;color:var(--primary-dark);margin-bottom:10px;overflow-wrap:anywhere}
 .patient-id-box small{display:block;margin-top:10px;color:var(--muted);line-height:1.5}
 .patient-id-box .secondary-btn{padding:8px 16px;font-size:14px}
-.hospital-lookup{max-width:760px;margin:auto;background:#fff;border:1px solid var(--border);border-radius:26px;padding:34px;box-shadow:var(--shadow)}
-.access-log{margin-top:26px}
-.access-log div{padding:10px 14px;background:#f4faff;border-radius:12px;margin-top:8px;font-size:14px;color:var(--muted);overflow-wrap:anywhere}
 </style>
 
 </head>
@@ -2788,7 +2785,6 @@
                     <div class="hero-buttons" style="margin-top:0">
                         <button class="primary-btn" onclick="showPage('ambulance')">See it in action →</button>
                         <button class="secondary-btn" onclick="showPage('login')">Get my Patient ID</button>
-                        <button class="secondary-btn" onclick="showPage('hospital')">🏥 Hospital check-in with ID</button>
                     </div>
                     <p class="child-note">Details are shared only with your consent, and only with the hospital you are sent to.</p>
                 </div>
@@ -4272,58 +4268,6 @@
     </div>
 
 
-
-    <!-- =====================================
-       HOSPITAL ACCESS (PATIENT ID LOOKUP)
-  ====================================== -->
-
-    <div class="page" id="hospital">
-
-        <nav>
-            <div class="nav-container">
-                <div class="brand" onclick="showPage('home')">
-                    <div class="brand-logo">🏥</div>
-                    <div>
-                        <h2>Gramrahi</h2>
-                        <span>Hospital Check-in</span>
-                    </div>
-                </div>
-                <button class="secondary-btn" onclick="goBack()">← Back</button>
-            </div>
-        </nav>
-
-        <div class="page-header">
-            <h1>🏥 Hospital Patient Check-in</h1>
-            <p>Enter the patient's Gramrahi ID to view their health details instantly.</p>
-        </div>
-
-        <div class="content-area">
-            <div class="hospital-lookup">
-                <div class="form-group">
-                    <label for="lookupHospital">Hospital</label>
-                    <select id="lookupHospital">
-                        <option>Community Health Centre</option>
-                        <option>Primary Health Centre</option>
-                        <option>District Government Hospital</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="lookupId">Patient ID</label>
-                    <input id="lookupId" type="text" maxlength="13" placeholder="GRM-XXXX-XXXX" style="text-transform:uppercase" onkeypress="if(event.key==='Enter')lookupPatient()">
-                </div>
-                <button class="primary-btn" onclick="lookupPatient()">Fetch patient details →</button>
-
-                <div id="lookupResult" aria-live="polite" style="margin-top:24px"></div>
-
-                <div class="access-log">
-                    <h3>Recent record access on this device</h3>
-                    <div id="accessLog"></div>
-                </div>
-
-                <p class="child-note">Demo: patient records are looked up from this browser's storage. A live version needs hospital staff sign-in and a secure server, and every access should be logged for the patient to see.</p>
-            </div>
-        </div>
-    </div>
 
     <!-- =====================================
        CONTACT DIRECTORY
@@ -6020,11 +5964,9 @@ function showHospitalReceipt(p, hosp, simulated) {
 
 <script>
 /* ============================================================
-   UNIQUE PATIENT ID + HOSPITAL LOOKUP (demo registry in browser)
+   UNIQUE PATIENT ID (demo registry in browser)
 ============================================================ */
 const PATIENT_REGISTRY_KEY = "gramrahiPatientRegistry_v1";
-const ACCESS_LOG_KEY = "gramrahiAccessLog_v1";
-let pendingLookupId = null;
 
 function nearestHospital() {
     return [...HANDOFF_HOSPITALS].sort((a, b) => a.km - b.km)[0];
@@ -6078,80 +6020,6 @@ function copyPatientId() {
     if (navigator.clipboard) navigator.clipboard.writeText(id).then(() => showToast("Patient ID copied: " + id), () => showToast("Your ID: " + id));
     else showToast("Your ID: " + id);
 }
-
-/* ---------- hospital side ---------- */
-function logAccess(entry) {
-    try {
-        const log = JSON.parse(localStorage.getItem(ACCESS_LOG_KEY) || "[]");
-        log.unshift(entry);
-        localStorage.setItem(ACCESS_LOG_KEY, JSON.stringify(log.slice(0, 15)));
-    } catch (_) {}
-    renderAccessLog();
-}
-function renderAccessLog() {
-    const box = document.getElementById("accessLog");
-    if (!box) return;
-    let log = [];
-    try { log = JSON.parse(localStorage.getItem(ACCESS_LOG_KEY) || "[]"); } catch (_) {}
-    box.innerHTML = log.length
-        ? log.map(l => `<div>${escapeChildText(l.id)} viewed by ${escapeChildText(l.hospital)} · ${new Date(l.time).toLocaleString()}</div>`).join("")
-        : `<div>No records accessed yet.</div>`;
-}
-
-function lookupPatient() {
-    const out = document.getElementById("lookupResult");
-    const id = document.getElementById("lookupId").value.trim().toUpperCase();
-    if (!/^GRM-[A-Z0-9]{4}-[A-Z0-9]{4}$/.test(id)) {
-        out.innerHTML = `<div class="child-status red">Enter a valid ID in the format GRM-XXXX-XXXX.</div>`;
-        return;
-    }
-    const rec = getRegistry()[id];
-    if (!rec) {
-        out.innerHTML = `<div class="child-status red">No patient found with this ID. Please check the ID and try again.</div>`;
-        return;
-    }
-    if (rec.consent !== "yes") {
-        pendingLookupId = id;
-        out.innerHTML = `<div class="child-status yellow"><strong>Patient approval needed.</strong><br>This patient has not switched on automatic sharing. Ask the patient for the one-time code sent to their registered mobile (demo code: 123456).</div>
-            <div class="form-group" style="margin-top:14px"><label for="lookupOtp">One-time code</label><input id="lookupOtp" type="text" maxlength="6" placeholder="Enter code"></div>
-            <button class="primary-btn" onclick="verifyLookupOtp()">Verify and view details</button>`;
-        return;
-    }
-    showPatientRecord(rec);
-}
-
-function verifyLookupOtp() {
-    const code = document.getElementById("lookupOtp").value.trim();
-    if (code !== "123456") { showToast("Incorrect code."); return; }
-    const rec = getRegistry()[pendingLookupId];
-    if (rec) showPatientRecord(rec);
-}
-
-function showPatientRecord(rec) {
-    const out = document.getElementById("lookupResult");
-    const hospital = document.getElementById("lookupHospital").value;
-    const item = (l, v) => `<div><span>${l}</span>${escapeChildText(v || "Not added")}</div>`;
-    const kids = (rec.id === hsGet("patientId")) ? getChildren() : [];
-    out.innerHTML = `<div class="hospital-receipt" style="display:block">
-        <div class="hr-head">✅ ${escapeChildText(rec.name)} · ${escapeChildText(rec.id)}</div>
-        <div class="hr-body"><div class="handoff-preview">` +
-        item("Age", rec.age + " years") + item("Gender", rec.gender) + item("Blood group", rec.bloodGroup) +
-        item("Medical conditions", rec.conditions) + item("Previous health issues", rec.pastIssues) +
-        item("Current treatment", rec.treatment) + item("Allergies", rec.allergies) +
-        item("Ayushman card / ABHA", rec.ayushman) + item("Emergency contact", rec.emergencyContact) +
-        item("Phone", rec.phone) + `</div>` +
-        (kids.length ? `<h4 style="margin:16px 0 6px">Children linked to this ID</h4><div class="handoff-preview">` +
-            kids.map(c => item(c.name, c.ageMonths + " months · Allergies: " + (c.allergies || "None added") + " · Conditions: " + (c.conditions || "None added"))).join("") + `</div>` : "") +
-        `</div><div class="hr-foot">Record shared with ${escapeChildText(hospital)}. This access has been logged. Last updated ${new Date(rec.updatedAt).toLocaleString()}.</div></div>`;
-    logAccess({id: rec.id, hospital: hospital, time: new Date().toISOString()});
-    pendingLookupId = null;
-}
-
-const _showPageV3 = window.showPage;
-window.showPage = function (id) {
-    _showPageV3(id);
-    if (id === "hospital") renderAccessLog();
-};
 </script>
 </body>
 
