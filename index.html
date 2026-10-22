@@ -1,2337 +1,2331 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>
-    Gramrahi | Connecting Every Citizen to Better Healthcare
-  </title>
+    <title>
+        Gramrahi | Connecting Every Citizen to Better Healthcare
+    </title>
 
 
-  <style>
-
-    /* ================================
+    <style>
+        /* ================================
        ROOT COLORS
     ================================= */
 
-    :root {
+        :root {
 
-      --primary: #0877d1;
-      --primary-dark: #045a9f;
+            --primary: #0877d1;
+            --primary-dark: #045a9f;
 
-      --cyan: #00b8d9;
+            --cyan: #00b8d9;
 
-      --green: #17b978;
+            --green: #17b978;
 
-      --white: #ffffff;
+            --white: #ffffff;
 
-      --bg: #f5faff;
+            --bg: #f5faff;
 
-      --text: #10233f;
+            --text: #10233f;
 
-      --muted: #62728a;
+            --muted: #62728a;
 
-      --border: #dbe8f3;
+            --border: #dbe8f3;
 
-      --danger: #ef4444;
+            --danger: #ef4444;
 
-      --danger-dark: #dc2626;
+            --danger-dark: #dc2626;
 
-      --shadow:
-        0 15px 45px
-        rgba(20, 75, 120, 0.12);
+            --shadow:
+                0 15px 45px rgba(20, 75, 120, 0.12);
 
-      --radius: 22px;
+            --radius: 22px;
 
-    }
+        }
 
 
-    /* ================================
+        /* ================================
        RESET
     ================================= */
 
-    * {
+        * {
 
-      margin: 0;
+            margin: 0;
 
-      padding: 0;
+            padding: 0;
 
-      box-sizing: border-box;
+            box-sizing: border-box;
 
-      font-family:
-        Inter,
-        "Segoe UI",
-        Arial,
-        sans-serif;
+            font-family:
+                Inter,
+                "Segoe UI",
+                Arial,
+                sans-serif;
 
-    }
-
-
-    html {
-
-      scroll-behavior: smooth;
-
-    }
+        }
 
 
-    body {
+        html {
 
-      background: var(--bg);
+            scroll-behavior: smooth;
 
-      color: var(--text);
-
-      overflow-x: hidden;
-
-    }
+        }
 
 
-    button,
-    input,
-    select {
+        body {
 
-      font: inherit;
+            background: var(--bg);
 
-    }
+            color: var(--text);
 
+            overflow-x: hidden;
 
-    button {
-
-      cursor: pointer;
-
-      border: none;
-
-    }
+        }
 
 
-    /* ================================
+        button,
+        input,
+        select {
+
+            font: inherit;
+
+        }
+
+
+        button {
+
+            cursor: pointer;
+
+            border: none;
+
+        }
+
+
+        /* ================================
        PAGE SYSTEM
     ================================= */
 
-    .page {
+        .page {
 
-      display: none;
+            display: none;
 
-      min-height: 100vh;
+            min-height: 100vh;
 
-      animation:
-        fadeIn 0.4s ease;
+            animation:
+                fadeIn 0.4s ease;
 
-    }
-
-
-    .page.active {
-
-      display: block;
-
-    }
+        }
 
 
-    @keyframes fadeIn {
+        .page.active {
 
-      from {
+            display: block;
 
-        opacity: 0;
-
-        transform:
-          translateY(10px);
-
-      }
-
-      to {
-
-        opacity: 1;
-
-        transform:
-          translateY(0);
-
-      }
-
-    }
+        }
 
 
-    /* ================================
+        @keyframes fadeIn {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(10px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+        /* ================================
        NAVIGATION
     ================================= */
 
-    nav {
+        nav {
 
-      position: sticky;
+            position: sticky;
 
-      top: 0;
+            top: 0;
 
-      z-index: 1000;
+            z-index: 1000;
 
-      background:
-        rgba(255, 255, 255, 0.94);
+            background:
+                rgba(255, 255, 255, 0.94);
 
-      backdrop-filter:
-        blur(18px);
+            backdrop-filter:
+                blur(18px);
 
-      border-bottom:
-        1px solid var(--border);
+            border-bottom:
+                1px solid var(--border);
 
-    }
+        }
 
 
-    .nav-container {
+        .nav-container {
 
-      max-width: 1250px;
+            max-width: 1250px;
 
-      margin: auto;
+            margin: auto;
 
-      padding:
-        16px 24px;
+            padding:
+                16px 24px;
 
-      display: flex;
+            display: flex;
 
-      justify-content:
-        space-between;
+            justify-content:
+                space-between;
 
-      align-items: center;
+            align-items: center;
 
-    }
+        }
 
 
-    .brand {
+        .brand {
 
-      display: flex;
+            display: flex;
 
-      align-items: center;
+            align-items: center;
 
-      gap: 10px;
+            gap: 10px;
 
-      cursor: pointer;
+            cursor: pointer;
 
-    }
+        }
 
 
-    .brand-logo {
+        .brand-logo {
 
-      width: 48px;
+            width: 48px;
 
-      height: 48px;
+            height: 48px;
 
-      border-radius: 15px;
+            border-radius: 15px;
 
-      background:
-        linear-gradient(
-          135deg,
-          var(--primary),
-          var(--cyan)
-        );
+            background:
+                linear-gradient(135deg,
+                    var(--primary),
+                    var(--cyan));
 
-      display: grid;
+            display: grid;
 
-      place-items: center;
+            place-items: center;
 
-      color: white;
+            color: white;
 
-      font-size: 25px;
+            font-size: 25px;
 
-      box-shadow:
-        0 10px 25px
-        rgba(8, 119, 209, 0.25);
+            box-shadow:
+                0 10px 25px rgba(8, 119, 209, 0.25);
 
-    }
+        }
 
 
-    .brand h2 {
+        .brand h2 {
 
-      font-size: 22px;
+            font-size: 22px;
 
-      color:
-        var(--primary-dark);
+            color:
+                var(--primary-dark);
 
-    }
+        }
 
 
-    .brand span {
+        .brand span {
 
-      font-size: 11px;
+            font-size: 11px;
 
-      display: block;
+            display: block;
 
-      color:
-        var(--muted);
+            color:
+                var(--muted);
 
-      margin-top: 2px;
+            margin-top: 2px;
 
-    }
+        }
 
 
-    .nav-links {
+        .nav-links {
 
-      display: flex;
+            display: flex;
 
-      gap: 24px;
+            gap: 24px;
 
-      align-items: center;
+            align-items: center;
 
-    }
+        }
 
 
-    .nav-links button {
+        .nav-links button {
 
-      background:
-        transparent;
+            background:
+                transparent;
 
-      color:
-        var(--muted);
+            color:
+                var(--muted);
 
-      font-weight: 600;
+            font-weight: 600;
 
-    }
+        }
 
 
-    .nav-links button:hover {
+        .nav-links button:hover {
 
-      color:
-        var(--primary);
+            color:
+                var(--primary);
 
-    }
+        }
 
 
-    .nav-login {
+        .nav-login {
 
-      background:
-        var(--primary)
-        !important;
+            background:
+                var(--primary) !important;
 
-      color:
-        white
-        !important;
+            color:
+                white !important;
 
-      padding:
-        11px 20px;
+            padding:
+                11px 20px;
 
-      border-radius: 12px;
+            border-radius: 12px;
 
-    }
+        }
 
 
-    /* ================================
+        /* ================================
        HERO
     ================================= */
 
-    .hero {
+        .hero {
 
-      min-height: 700px;
+            min-height: 700px;
 
-      padding:
-        80px 24px;
+            padding:
+                80px 24px;
 
-      position: relative;
+            position: relative;
 
-      overflow: hidden;
+            overflow: hidden;
 
-      background:
+            background:
 
-        radial-gradient(
-          circle at 10% 10%,
-          rgba(0, 184, 217, 0.12),
-          transparent 35%
-        ),
+                radial-gradient(circle at 10% 10%,
+                    rgba(0, 184, 217, 0.12),
+                    transparent 35%),
 
-        radial-gradient(
-          circle at 85% 20%,
-          rgba(23, 185, 120, 0.12),
-          transparent 30%
-        ),
+                radial-gradient(circle at 85% 20%,
+                    rgba(23, 185, 120, 0.12),
+                    transparent 30%),
 
-        linear-gradient(
-          135deg,
-          #f9fdff,
-          #eaf7ff
-        );
+                linear-gradient(135deg,
+                    #f9fdff,
+                    #eaf7ff);
 
-    }
+        }
 
 
-    .hero-container {
+        .hero-container {
 
-      max-width: 1250px;
+            max-width: 1250px;
 
-      margin: auto;
+            margin: auto;
 
-      display: grid;
+            display: grid;
 
-      grid-template-columns:
-        1.1fr 0.9fr;
+            grid-template-columns:
+                1.1fr 0.9fr;
 
-      gap: 50px;
+            gap: 50px;
 
-      align-items: center;
+            align-items: center;
 
-    }
+        }
 
 
-    .badge {
+        .badge {
 
-      display: inline-flex;
+            display: inline-flex;
 
-      align-items: center;
+            align-items: center;
 
-      gap: 8px;
+            gap: 8px;
 
-      padding:
-        10px 16px;
+            padding:
+                10px 16px;
 
-      border-radius: 100px;
+            border-radius: 100px;
 
-      background:
-        #e7f7ff;
+            background:
+                #e7f7ff;
 
-      color:
-        var(--primary-dark);
+            color:
+                var(--primary-dark);
 
-      font-weight: 700;
+            font-weight: 700;
 
-      font-size: 14px;
+            font-size: 14px;
 
-      margin-bottom: 22px;
+            margin-bottom: 22px;
 
-    }
+        }
 
 
-    .hero h1 {
+        .hero h1 {
 
-      font-size:
-        clamp(
-          42px,
-          6vw,
-          72px
-        );
+            font-size:
+                clamp(42px,
+                    6vw,
+                    72px);
 
-      line-height: 1.05;
+            line-height: 1.05;
 
-      margin-bottom: 22px;
+            margin-bottom: 22px;
 
-      letter-spacing:
-        -2px;
+            letter-spacing:
+                -2px;
 
-    }
+        }
 
 
-    .hero h1 span {
+        .hero h1 span {
 
-      color:
-        var(--primary);
+            color:
+                var(--primary);
 
-    }
+        }
 
 
-    .hero p {
+        .hero p {
 
-      font-size: 19px;
+            font-size: 19px;
 
-      line-height: 1.7;
+            line-height: 1.7;
 
-      color:
-        var(--muted);
+            color:
+                var(--muted);
 
-      max-width: 650px;
+            max-width: 650px;
 
-      margin-bottom: 30px;
+            margin-bottom: 30px;
 
-    }
+        }
 
 
-    .journey {
+        .journey {
 
-      display: flex;
+            display: flex;
 
-      flex-wrap: wrap;
+            flex-wrap: wrap;
 
-      gap: 10px;
+            gap: 10px;
 
-      margin:
-        28px 0;
+            margin:
+                28px 0;
 
-    }
+        }
 
 
-    .journey-step {
+        .journey-step {
 
-      padding:
-        12px 16px;
+            padding:
+                12px 16px;
 
-      background:
-        white;
+            background:
+                white;
 
-      border:
-        1px solid var(--border);
+            border:
+                1px solid var(--border);
 
-      border-radius: 12px;
+            border-radius: 12px;
 
-      font-weight: 700;
+            font-weight: 700;
 
-      color:
-        var(--primary-dark);
+            color:
+                var(--primary-dark);
 
-      box-shadow:
-        0 8px 20px
-        rgba(30, 80, 120, 0.06);
+            box-shadow:
+                0 8px 20px rgba(30, 80, 120, 0.06);
 
-    }
+        }
 
 
-    .arrow {
+        .arrow {
 
-      color:
-        var(--cyan);
+            color:
+                var(--cyan);
 
-      font-size: 24px;
+            font-size: 24px;
 
-      display: flex;
+            display: flex;
 
-      align-items: center;
+            align-items: center;
 
-    }
+        }
 
 
-    .hero-buttons {
+        .hero-buttons {
 
-      display: flex;
+            display: flex;
 
-      flex-wrap: wrap;
+            flex-wrap: wrap;
 
-      gap: 15px;
+            gap: 15px;
 
-      margin-top: 30px;
+            margin-top: 30px;
 
-    }
+        }
 
 
-    /* ================================
+        /* ================================
        BUTTONS
     ================================= */
 
-    .primary-btn {
+        .primary-btn {
 
-      padding:
-        15px 25px;
+            padding:
+                15px 25px;
 
-      background:
-        linear-gradient(
-          135deg,
-          var(--primary),
-          var(--cyan)
-        );
+            background:
+                linear-gradient(135deg,
+                    var(--primary),
+                    var(--cyan));
 
-      color:
-        white;
+            color:
+                white;
 
-      font-weight: 700;
+            font-weight: 700;
 
-      border-radius: 14px;
+            border-radius: 14px;
 
-      box-shadow:
-        0 12px 25px
-        rgba(8, 119, 209, 0.25);
+            box-shadow:
+                0 12px 25px rgba(8, 119, 209, 0.25);
 
-      transition:
-        0.3s;
+            transition:
+                0.3s;
 
-    }
+        }
 
 
-    .primary-btn:hover {
+        .primary-btn:hover {
 
-      transform:
-        translateY(-3px);
+            transform:
+                translateY(-3px);
 
-    }
-
-
-    .secondary-btn {
-
-      padding:
-        15px 25px;
-
-      background:
-        white;
-
-      color:
-        var(--primary-dark);
-
-      font-weight: 700;
-
-      border:
-        1px solid var(--border);
-
-      border-radius: 14px;
-
-      transition:
-        0.3s;
-
-    }
+        }
 
 
-    .secondary-btn:hover {
+        .secondary-btn {
 
-      background:
-        #eef8ff;
+            padding:
+                15px 25px;
 
-    }
+            background:
+                white;
+
+            color:
+                var(--primary-dark);
+
+            font-weight: 700;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 14px;
+
+            transition:
+                0.3s;
+
+        }
 
 
-    /* ================================
+        .secondary-btn:hover {
+
+            background:
+                #eef8ff;
+
+        }
+
+
+        /* ================================
        HERO VISUAL
     ================================= */
 
-    .hero-visual {
+        .hero-visual {
 
-      position: relative;
+            position: relative;
 
-    }
-
-
-    .health-card {
-
-      background:
-        rgba(
-          255,
-          255,
-          255,
-          0.9
-        );
-
-      box-shadow:
-        var(--shadow);
-
-      border-radius: 35px;
-
-      padding: 32px;
-
-      position: relative;
-
-      overflow: hidden;
-
-    }
+        }
 
 
-    .doctor-illustration {
+        .health-card {
 
-      font-size: 170px;
+            background:
+                rgba(255,
+                    255,
+                    255,
+                    0.9);
 
-      text-align: center;
+            box-shadow:
+                var(--shadow);
 
-      padding: 20px;
+            border-radius: 35px;
 
-      animation:
-        float
-        4s
-        ease-in-out
-        infinite;
+            padding: 32px;
 
-    }
+            position: relative;
 
+            overflow: hidden;
 
-    @keyframes float {
-
-      50% {
-
-        transform:
-          translateY(-15px);
-
-      }
-
-    }
+        }
 
 
-    .mini-info {
+        .doctor-illustration {
 
-      position: absolute;
+            font-size: 170px;
 
-      background:
-        white;
+            text-align: center;
 
-      padding: 15px;
+            padding: 20px;
 
-      border-radius: 16px;
+            animation:
+                float 4s ease-in-out infinite;
 
-      box-shadow:
-        var(--shadow);
-
-      display: flex;
-
-      align-items: center;
-
-      gap: 10px;
-
-      font-weight: 700;
-
-    }
+        }
 
 
-    .mini-info.one {
+        @keyframes float {
 
-      left: -30px;
+            50% {
 
-      top: 100px;
+                transform:
+                    translateY(-15px);
 
-    }
+            }
 
-
-    .mini-info.two {
-
-      right: -20px;
-
-      bottom: 50px;
-
-    }
+        }
 
 
-    /* ================================
+        .mini-info {
+
+            position: absolute;
+
+            background:
+                white;
+
+            padding: 15px;
+
+            border-radius: 16px;
+
+            box-shadow:
+                var(--shadow);
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            font-weight: 700;
+
+        }
+
+
+        .mini-info.one {
+
+            left: -30px;
+
+            top: 100px;
+
+        }
+
+
+        .mini-info.two {
+
+            right: -20px;
+
+            bottom: 50px;
+
+        }
+
+
+        /* ================================
        SECTIONS
     ================================= */
 
-    section {
+        section {
 
-      padding:
-        90px 24px;
+            padding:
+                90px 24px;
 
-    }
-
-
-    .container {
-
-      max-width: 1250px;
-
-      margin: auto;
-
-    }
+        }
 
 
-    .section-title {
+        .container {
 
-      text-align: center;
+            max-width: 1250px;
 
-      max-width: 750px;
+            margin: auto;
 
-      margin:
-        auto
-        auto
-        50px;
-
-    }
+        }
 
 
-    .section-title h2 {
+        .section-title {
 
-      font-size: 42px;
+            text-align: center;
 
-      margin-bottom: 15px;
+            max-width: 750px;
 
-    }
+            margin:
+                auto auto 50px;
 
-
-    .section-title p {
-
-      color:
-        var(--muted);
-
-      font-size: 17px;
-
-      line-height: 1.6;
-
-    }
+        }
 
 
-    /* ================================
+        .section-title h2 {
+
+            font-size: 42px;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .section-title p {
+
+            color:
+                var(--muted);
+
+            font-size: 17px;
+
+            line-height: 1.6;
+
+        }
+
+
+        /* ================================
        SERVICE CARDS
     ================================= */
 
-    .services-grid {
+        .services-grid {
 
-      display: grid;
+            display: grid;
 
-      grid-template-columns:
-        repeat(3, 1fr);
+            grid-template-columns:
+                repeat(3, 1fr);
 
-      gap: 22px;
+            gap: 22px;
 
-    }
-
-
-    .service-card {
-
-      background:
-        white;
-
-      padding: 28px;
-
-      border-radius:
-        var(--radius);
-
-      border:
-        1px solid var(--border);
-
-      transition:
-        0.3s;
-
-    }
+        }
 
 
-    .service-card:hover {
+        .service-card {
 
-      transform:
-        translateY(-8px);
+            background:
+                white;
 
-      box-shadow:
-        var(--shadow);
+            padding: 28px;
 
-      border-color:
-        var(--cyan);
+            border-radius:
+                var(--radius);
 
-    }
+            border:
+                1px solid var(--border);
 
+            transition:
+                0.3s;
 
-    .service-icon {
-
-      width: 62px;
-
-      height: 62px;
-
-      border-radius: 18px;
-
-      display: grid;
-
-      place-items: center;
-
-      font-size: 29px;
-
-      background:
-        linear-gradient(
-          135deg,
-          #e9f8ff,
-          #ecfff6
-        );
-
-      margin-bottom: 20px;
-
-    }
+        }
 
 
-    .service-card h3 {
+        .service-card:hover {
 
-      margin-bottom: 10px;
+            transform:
+                translateY(-8px);
 
-      font-size: 21px;
+            box-shadow:
+                var(--shadow);
 
-    }
+            border-color:
+                var(--cyan);
 
-
-    .service-card p {
-
-      color:
-        var(--muted);
-
-      line-height: 1.6;
-
-      margin-bottom: 20px;
-
-    }
+        }
 
 
-    .card-link {
+        .service-icon {
 
-      color:
-        var(--primary);
+            width: 62px;
 
-      font-weight: 700;
+            height: 62px;
 
-      background:
-        transparent;
+            border-radius: 18px;
 
-    }
+            display: grid;
+
+            place-items: center;
+
+            font-size: 29px;
+
+            background:
+                linear-gradient(135deg,
+                    #e9f8ff,
+                    #ecfff6);
+
+            margin-bottom: 20px;
+
+        }
 
 
-    /* ================================
+        .service-card h3 {
+
+            margin-bottom: 10px;
+
+            font-size: 21px;
+
+        }
+
+
+        .service-card p {
+
+            color:
+                var(--muted);
+
+            line-height: 1.6;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .card-link {
+
+            color:
+                var(--primary);
+
+            font-weight: 700;
+
+            background:
+                transparent;
+
+        }
+
+
+        /* ================================
        EMERGENCY BANNER
     ================================= */
 
-    .emergency-banner {
+        .emergency-banner {
 
-      background:
-        linear-gradient(
-          135deg,
-          #e53935,
-          #ff6b6b
-        );
+            background:
+                linear-gradient(135deg,
+                    #e53935,
+                    #ff6b6b);
 
-      color:
-        white;
+            color:
+                white;
 
-      border-radius: 28px;
+            border-radius: 28px;
 
-      padding: 35px;
+            padding: 35px;
 
-      display: flex;
+            display: flex;
 
-      justify-content:
-        space-between;
+            justify-content:
+                space-between;
 
-      align-items: center;
+            align-items: center;
 
-      gap: 25px;
+            gap: 25px;
 
-      box-shadow:
-        0 20px 50px
-        rgba(239, 68, 68, 0.25);
+            box-shadow:
+                0 20px 50px rgba(239, 68, 68, 0.25);
 
-    }
+        }
 
 
-    .emergency-banner h2 {
+        .emergency-banner h2 {
 
-      margin-bottom: 8px;
+            margin-bottom: 8px;
 
-    }
-
-
-    .emergency-btn {
-
-      background:
-        white;
-
-      color:
-        var(--danger-dark);
-
-      padding:
-        17px 28px;
-
-      border-radius: 15px;
-
-      font-weight: 800;
-
-      font-size: 16px;
-
-      white-space: nowrap;
-
-    }
+        }
 
 
-    /* ================================
+        .emergency-btn {
+
+            background:
+                white;
+
+            color:
+                var(--danger-dark);
+
+            padding:
+                17px 28px;
+
+            border-radius: 15px;
+
+            font-weight: 800;
+
+            font-size: 16px;
+
+            white-space: nowrap;
+
+        }
+
+
+        /* ================================
        PAGE HEADER
     ================================= */
 
-    .page-header {
+        .page-header {
 
-      background:
-        linear-gradient(
-          135deg,
-          #e8f7ff,
-          #f2fffa
-        );
+            background:
+                linear-gradient(135deg,
+                    #e8f7ff,
+                    #f2fffa);
 
-      padding:
-        70px 24px;
+            padding:
+                70px 24px;
 
-      text-align: center;
+            text-align: center;
 
-    }
+        }
 
 
-    .page-header h1 {
+        .page-header h1 {
 
-      font-size: 45px;
+            font-size: 45px;
 
-      margin-bottom: 14px;
+            margin-bottom: 14px;
 
-    }
-
-
-    .page-header p {
-
-      color:
-        var(--muted);
-
-      font-size: 17px;
-
-    }
+        }
 
 
-    .content-area {
+        .page-header p {
 
-      max-width: 1100px;
+            color:
+                var(--muted);
 
-      margin: auto;
+            font-size: 17px;
 
-      padding:
-        60px 24px;
-
-    }
+        }
 
 
-    /* ================================
+        .content-area {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding:
+                60px 24px;
+
+        }
+
+
+        /* ================================
        LOGIN + PROFILE FORM
     ================================= */
 
-    .login-box {
+        .login-box {
 
-      max-width: 600px;
+            max-width: 600px;
 
-      margin:
-        40px auto;
+            margin:
+                40px auto;
 
-      background:
-        white;
+            background:
+                white;
 
-      padding: 40px;
+            padding: 40px;
 
-      border-radius: 28px;
+            border-radius: 28px;
 
-      box-shadow:
-        var(--shadow);
+            box-shadow:
+                var(--shadow);
 
-      border:
-        1px solid var(--border);
+            border:
+                1px solid var(--border);
 
-    }
-
-
-    .login-box h2 {
-
-      margin-bottom: 10px;
-
-    }
+        }
 
 
-    .login-box p {
+        .login-box h2 {
 
-      color:
-        var(--muted);
+            margin-bottom: 10px;
 
-      margin-bottom: 25px;
-
-    }
+        }
 
 
-    .form-group {
+        .login-box p {
 
-      margin-bottom: 20px;
+            color:
+                var(--muted);
 
-    }
+            margin-bottom: 25px;
 
-
-    .form-group label {
-
-      display: block;
-
-      margin-bottom: 8px;
-
-      font-weight: 700;
-
-    }
+        }
 
 
-    .form-group input,
-    .form-group select {
+        .form-group {
 
-      width: 100%;
+            margin-bottom: 20px;
 
-      padding: 15px;
-
-      border:
-        1px solid var(--border);
-
-      border-radius: 12px;
-
-      outline: none;
-
-    }
+        }
 
 
-    .form-group input:focus,
-    .form-group select:focus {
+        .form-group label {
 
-      border-color:
-        var(--primary);
+            display: block;
 
-      box-shadow:
-        0 0 0 4px
-        rgba(8,119,209,0.08);
+            margin-bottom: 8px;
 
-    }
+            font-weight: 700;
+
+        }
 
 
-    /* ================================
+        .form-group input,
+        .form-group select {
+
+            width: 100%;
+
+            padding: 15px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 12px;
+
+            outline: none;
+
+        }
+
+
+        .form-group input:focus,
+        .form-group select:focus {
+
+            border-color:
+                var(--primary);
+
+            box-shadow:
+                0 0 0 4px rgba(8, 119, 209, 0.08);
+
+        }
+
+
+        /* ================================
        SEND OTP RED HOVER ANIMATION
     ================================= */
 
-    .full-btn {
+        .full-btn {
 
-      width: 100%;
+            width: 100%;
 
-      padding: 16px;
+            padding: 16px;
 
-      border-radius: 13px;
+            border-radius: 13px;
 
-      font-weight: 700;
+            font-weight: 700;
 
-      background:
-        var(--primary);
+            background:
+                var(--primary);
 
-      color:
-        white;
+            color:
+                white;
 
-      transition:
-        all
-        0.3s
-        ease;
+            transition:
+                all 0.3s ease;
 
-      position: relative;
+            position: relative;
 
-    }
+        }
 
 
-    .full-btn:hover {
+        .full-btn:hover {
 
-      background:
-        #ef4444;
+            background:
+                #ef4444;
 
-      transform:
-        translateY(-3px)
-        scale(1.02);
+            transform:
+                translateY(-3px) scale(1.02);
 
-      box-shadow:
-        0 12px 30px
-        rgba(239, 68, 68, 0.45);
+            box-shadow:
+                0 12px 30px rgba(239, 68, 68, 0.45);
 
-    }
+        }
 
 
-    .full-btn:active {
+        .full-btn:active {
 
-      transform:
-        scale(0.98);
+            transform:
+                scale(0.98);
 
-    }
+        }
 
 
-    /* ================================
+        /* ================================
        MULTI STEP FORM
     ================================= */
 
-    .form-step {
+        .form-step {
 
-      display: none;
+            display: none;
 
-      animation:
-        fadeIn
-        0.4s
-        ease;
+            animation:
+                fadeIn 0.4s ease;
 
-    }
+        }
 
 
-    .form-step.active-step {
+        .form-step.active-step {
 
-      display: block;
+            display: block;
 
-    }
+        }
 
 
-    .step-progress {
+        .step-progress {
 
-      display: flex;
+            display: flex;
 
-      justify-content: center;
+            justify-content: center;
 
-      gap: 8px;
+            gap: 8px;
 
-      margin-bottom: 30px;
+            margin-bottom: 30px;
 
-    }
+        }
 
 
-    .step-dot {
+        .step-dot {
 
-      width: 60px;
+            width: 60px;
 
-      height: 8px;
+            height: 8px;
 
-      border-radius: 20px;
+            border-radius: 20px;
 
-      background:
-        #dbe8f3;
+            background:
+                #dbe8f3;
 
-      transition:
-        0.3s;
+            transition:
+                0.3s;
 
-    }
+        }
 
 
-    .step-dot.active {
+        .step-dot.active {
 
-      background:
-        var(--primary);
+            background:
+                var(--primary);
 
-    }
+        }
 
 
-    .step-dot.completed {
+        .step-dot.completed {
 
-      background:
-        var(--green);
+            background:
+                var(--green);
 
-    }
+        }
 
 
-    .back-btn {
+        .back-btn {
 
-      display: inline-flex;
+            display: inline-flex;
 
-      align-items: center;
+            align-items: center;
 
-      gap: 8px;
+            gap: 8px;
 
-      padding:
-        11px 18px;
+            padding:
+                11px 18px;
 
-      border-radius: 12px;
+            border-radius: 12px;
 
-      background:
-        white;
+            background:
+                white;
 
-      color:
-        var(--primary-dark);
+            color:
+                var(--primary-dark);
 
-      border:
-        1px solid var(--border);
+            border:
+                1px solid var(--border);
 
-      font-weight: 700;
+            font-weight: 700;
 
-      transition:
-        all
-        0.3s;
+            transition:
+                all 0.3s;
 
-      margin-bottom: 20px;
+            margin-bottom: 20px;
 
-    }
+        }
 
 
-    .back-btn:hover {
+        .back-btn:hover {
 
-      background:
-        #eef8ff;
+            background:
+                #eef8ff;
 
-      transform:
-        translateX(-5px);
+            transform:
+                translateX(-5px);
 
-      border-color:
-        var(--primary);
+            border-color:
+                var(--primary);
 
-    }
+        }
 
 
-    .form-navigation {
+        .form-navigation {
 
-      display: flex;
+            display: flex;
 
-      justify-content:
-        space-between;
+            justify-content:
+                space-between;
 
-      gap: 15px;
+            gap: 15px;
 
-      margin-top: 25px;
+            margin-top: 25px;
 
-    }
+        }
 
 
-    .next-btn {
+        .next-btn {
 
-      padding:
-        14px 25px;
+            padding:
+                14px 25px;
 
-      border-radius: 12px;
+            border-radius: 12px;
 
-      background:
-        var(--primary);
+            background:
+                var(--primary);
 
-      color:
-        white;
+            color:
+                white;
 
-      font-weight: 700;
+            font-weight: 700;
 
-    }
+        }
 
 
-    .previous-btn {
+        .previous-btn {
 
-      padding:
-        14px 25px;
+            padding:
+                14px 25px;
 
-      border-radius: 12px;
+            border-radius: 12px;
 
-      background:
-        #eef8ff;
+            background:
+                #eef8ff;
 
-      color:
-        var(--primary-dark);
+            color:
+                var(--primary-dark);
 
-      font-weight: 700;
+            font-weight: 700;
 
-    }
+        }
 
 
-    /* ================================
+        /* ================================
        CHAT
     ================================= */
 
-    .chat-layout {
+        .chat-layout {
 
-      display: grid;
+            display: grid;
 
-      grid-template-columns:
-        300px
-        1fr;
+            grid-template-columns:
+                300px 1fr;
 
-      gap: 25px;
+            gap: 25px;
 
-    }
+        }
 
 
-    .guide-sidebar,
-    .chat-window {
+        .guide-sidebar,
+        .chat-window {
 
-      background:
-        white;
+            background:
+                white;
 
-      border-radius: 25px;
+            border-radius: 25px;
 
-      border:
-        1px solid var(--border);
+            border:
+                1px solid var(--border);
 
-      box-shadow:
-        0 10px 35px
-        rgba(20, 70, 120, 0.08);
+            box-shadow:
+                0 10px 35px rgba(20, 70, 120, 0.08);
 
-    }
+        }
 
 
-    .guide-sidebar {
+        .guide-sidebar {
 
-      padding: 25px;
+            padding: 25px;
 
-    }
+        }
 
 
-    .guide-sidebar h3 {
+        .guide-sidebar h3 {
 
-      margin-bottom: 20px;
+            margin-bottom: 20px;
 
-    }
+        }
 
 
-    .quick-action {
+        .quick-action {
 
-      width: 100%;
+            width: 100%;
 
-      padding: 15px;
+            padding: 15px;
 
-      background:
-        #f4faff;
+            background:
+                #f4faff;
 
-      border-radius: 12px;
+            border-radius: 12px;
 
-      margin-bottom: 10px;
+            margin-bottom: 10px;
 
-      text-align: left;
+            text-align: left;
 
-      color:
-        var(--primary-dark);
+            color:
+                var(--primary-dark);
 
-      font-weight: 600;
+            font-weight: 600;
 
-    }
+        }
 
 
-    .chat-window {
+        .chat-window {
 
-      min-height: 550px;
+            min-height: 550px;
 
-      display: flex;
+            display: flex;
 
-      flex-direction: column;
+            flex-direction: column;
 
-    }
+        }
 
 
-    .chat-top {
+        .chat-top {
 
-      padding: 20px;
+            padding: 20px;
 
-      border-bottom:
-        1px solid var(--border);
+            border-bottom:
+                1px solid var(--border);
 
-      display: flex;
+            display: flex;
 
-      align-items: center;
+            align-items: center;
 
-      gap: 12px;
+            gap: 12px;
 
-    }
+        }
 
 
-    .ai-avatar {
+        .ai-avatar {
 
-      width: 50px;
+            width: 50px;
 
-      height: 50px;
+            height: 50px;
 
-      border-radius: 50%;
+            border-radius: 50%;
 
-      display: grid;
+            display: grid;
 
-      place-items: center;
+            place-items: center;
 
-      background:
-        linear-gradient(
-          135deg,
-          var(--primary),
-          var(--cyan)
-        );
+            background:
+                linear-gradient(135deg,
+                    var(--primary),
+                    var(--cyan));
 
-      color:
-        white;
+            color:
+                white;
 
-      font-size: 22px;
+            font-size: 22px;
 
-    }
+        }
 
 
-    .messages {
+        .messages {
 
-      flex: 1;
+            flex: 1;
 
-      padding: 25px;
+            padding: 25px;
 
-      overflow-y: auto;
+            overflow-y: auto;
 
-    }
+        }
 
 
-    .message {
+        .message {
 
-      max-width: 75%;
+            max-width: 75%;
 
-      padding: 15px;
+            padding: 15px;
 
-      border-radius: 18px;
+            border-radius: 18px;
 
-      margin-bottom: 15px;
+            margin-bottom: 15px;
 
-      line-height: 1.5;
+            line-height: 1.5;
 
-    }
+        }
 
 
-    .bot-message {
+        .bot-message {
 
-      background:
-        #eef8ff;
+            background:
+                #eef8ff;
 
-      color:
-        var(--text);
+            color:
+                var(--text);
 
-    }
+        }
 
 
-    .user-message {
+        .user-message {
 
-      margin-left: auto;
+            margin-left: auto;
 
-      background:
-        var(--primary);
+            background:
+                var(--primary);
 
-      color:
-        white;
+            color:
+                white;
 
-    }
+        }
 
 
-    .chat-input {
+        .chat-input {
 
-      padding: 18px;
+            padding: 18px;
 
-      border-top:
-        1px solid var(--border);
+            border-top:
+                1px solid var(--border);
 
-      display: flex;
+            display: flex;
 
-      gap: 10px;
+            gap: 10px;
 
-    }
+        }
 
 
-    .chat-input input {
+        .chat-input input {
 
-      flex: 1;
+            flex: 1;
 
-      border:
-        1px solid var(--border);
+            border:
+                1px solid var(--border);
 
-      padding: 14px;
+            padding: 14px;
 
-      border-radius: 12px;
+            border-radius: 12px;
 
-      outline: none;
+            outline: none;
 
-    }
+        }
 
 
-    .send-btn {
+        .send-btn {
 
-      padding:
-        0 22px;
+            padding:
+                0 22px;
 
-      border-radius: 12px;
+            border-radius: 12px;
 
-      background:
-        var(--primary);
+            background:
+                var(--primary);
 
-      color:
-        white;
+            color:
+                white;
 
-      font-weight: 700;
+            font-weight: 700;
 
-    }
+        }
 
 
-    /* ================================
+        /* ================================
        PROFILE
     ================================= */
 
-    .profile-grid {
+        .profile-grid {
 
-      display: grid;
+            display: grid;
 
-      grid-template-columns:
-        0.9fr
-        1.5fr;
+            grid-template-columns:
+                0.9fr 1.5fr;
 
-      gap: 25px;
+            gap: 25px;
 
-    }
-
-
-    .profile-card,
-    .info-card {
-
-      background:
-        white;
-
-      border-radius: 25px;
-
-      padding: 30px;
-
-      border:
-        1px solid var(--border);
-
-      box-shadow:
-        0 10px 30px
-        rgba(20,70,120,0.05);
-
-    }
+        }
 
 
-    .profile-card {
+        .profile-card,
+        .info-card {
 
-      text-align: center;
+            background:
+                white;
 
-    }
+            border-radius: 25px;
 
+            padding: 30px;
 
-    .profile-avatar {
+            border:
+                1px solid var(--border);
 
-      width: 100px;
+            box-shadow:
+                0 10px 30px rgba(20, 70, 120, 0.05);
 
-      height: 100px;
-
-      margin:
-        auto
-        auto
-        20px;
-
-      border-radius: 50%;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--primary),
-          var(--cyan)
-        );
-
-      display: grid;
-
-      place-items: center;
-
-      color:
-        white;
-
-      font-size: 45px;
-
-    }
+        }
 
 
-    .health-info {
+        .profile-card {
 
-      display: grid;
+            text-align: center;
 
-      grid-template-columns:
-        repeat(2, 1fr);
-
-      gap: 15px;
-
-      margin-top: 20px;
-
-    }
+        }
 
 
-    .health-item {
+        .profile-avatar {
 
-      background:
-        #f6fbff;
+            width: 100px;
 
-      padding: 17px;
+            height: 100px;
 
-      border-radius: 15px;
+            margin:
+                auto auto 20px;
 
-    }
+            border-radius: 50%;
+
+            background:
+                linear-gradient(135deg,
+                    var(--primary),
+                    var(--cyan));
+
+            display: grid;
+
+            place-items: center;
+
+            color:
+                white;
+
+            font-size: 45px;
+
+        }
 
 
-    .health-item span {
+        .health-info {
 
-      display: block;
+            display: grid;
 
-      color:
-        var(--muted);
+            grid-template-columns:
+                repeat(2, 1fr);
 
-      font-size: 13px;
+            gap: 15px;
 
-      margin-bottom: 5px;
+            margin-top: 20px;
 
-    }
+        }
 
 
-    /* ================================
+        .health-item {
+
+            background:
+                #f6fbff;
+
+            padding: 17px;
+
+            border-radius: 15px;
+
+        }
+
+
+        .health-item span {
+
+            display: block;
+
+            color:
+                var(--muted);
+
+            font-size: 13px;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        /* ================================
        SCHEMES
     ================================= */
 
-    .scheme-form {
+        .scheme-form {
 
-      background:
-        white;
+            background:
+                white;
 
-      padding: 35px;
+            padding: 35px;
 
-      border-radius: 25px;
+            border-radius: 25px;
 
-      border:
-        1px solid var(--border);
+            border:
+                1px solid var(--border);
 
-    }
-
-
-    .scheme-grid {
-
-      display: grid;
-
-      grid-template-columns:
-        repeat(2, 1fr);
-
-      gap: 20px;
-
-    }
+        }
 
 
-    .scheme-results {
+        .scheme-grid {
 
-      margin-top: 35px;
+            display: grid;
 
-      display: grid;
+            grid-template-columns:
+                repeat(2, 1fr);
 
-      gap: 18px;
+            gap: 20px;
 
-    }
-
-
-    .scheme-card {
-
-      background:
-        white;
-
-      border-radius: 20px;
-
-      padding: 25px;
-
-      border-left:
-        5px solid
-        var(--green);
-
-      box-shadow:
-        0 10px 30px
-        rgba(20,70,120,0.06);
-
-    }
+        }
 
 
-    .scheme-card p {
+        .scheme-results {
 
-      color:
-        var(--muted);
+            margin-top: 35px;
 
-      line-height: 1.6;
+            display: grid;
 
-      margin-top: 10px;
+            gap: 18px;
 
-    }
-
-
-    .eligible {
-
-      display: inline-block;
-
-      margin-top: 14px;
-
-      padding:
-        7px 12px;
-
-      background:
-        #eafbf4;
-
-      color:
-        #11875a;
-
-      border-radius: 50px;
-
-      font-size: 13px;
-
-      font-weight: 700;
-
-    }
+        }
 
 
-    /* ================================
+        .scheme-card {
+
+            background:
+                white;
+
+            border-radius: 20px;
+
+            padding: 25px;
+
+            border-left:
+                5px solid var(--green);
+
+            box-shadow:
+                0 10px 30px rgba(20, 70, 120, 0.06);
+
+        }
+
+
+        .scheme-card p {
+
+            color:
+                var(--muted);
+
+            line-height: 1.6;
+
+            margin-top: 10px;
+
+        }
+
+
+        .eligible {
+
+            display: inline-block;
+
+            margin-top: 14px;
+
+            padding:
+                7px 12px;
+
+            background:
+                #eafbf4;
+
+            color:
+                #11875a;
+
+            border-radius: 50px;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+        }
+
+
+        /* ================================
        AMBULANCE
     ================================= */
 
-    .ambulance-box {
+        .ambulance-box {
 
-      max-width: 750px;
+            max-width: 750px;
 
-      margin: auto;
+            margin: auto;
 
-      background:
-        white;
+            background:
+                white;
 
-      padding: 40px;
+            padding: 40px;
 
-      border-radius: 30px;
+            border-radius: 30px;
 
-      text-align: center;
+            text-align: center;
 
-      box-shadow:
-        var(--shadow);
+            box-shadow:
+                var(--shadow);
 
-    }
-
-
-    .ambulance-icon {
-
-      font-size: 90px;
-
-      margin-bottom: 20px;
-
-    }
+        }
 
 
-    .ambulance-box h2 {
+        .ambulance-icon {
 
-      font-size: 32px;
+            font-size: 90px;
 
-      margin-bottom: 12px;
+            margin-bottom: 20px;
 
-    }
-
-
-    .ambulance-box p {
-
-      color:
-        var(--muted);
-
-      line-height: 1.7;
-
-      margin-bottom: 25px;
-
-    }
+        }
 
 
-    .location-box {
+        .ambulance-box h2 {
 
-      background:
-        #f2fbff;
+            font-size: 32px;
 
-      padding: 18px;
+            margin-bottom: 12px;
 
-      border-radius: 15px;
-
-      margin:
-        20px 0;
-
-      font-weight: 600;
-
-    }
+        }
 
 
-    .request-ambulance {
+        .ambulance-box p {
 
-      background:
-        var(--danger);
+            color:
+                var(--muted);
 
-      color:
-        white;
+            line-height: 1.7;
 
-      width: 100%;
+            margin-bottom: 25px;
 
-      padding: 20px;
-
-      font-size: 18px;
-
-      font-weight: 800;
-
-      border-radius: 16px;
-
-    }
+        }
 
 
-    /* ================================
+        .location-box {
+
+            background:
+                #f2fbff;
+
+            padding: 18px;
+
+            border-radius: 15px;
+
+            margin:
+                20px 0;
+
+            font-weight: 600;
+
+        }
+
+
+        .request-ambulance {
+
+            background:
+                var(--danger);
+
+            color:
+                white;
+
+            width: 100%;
+
+            padding: 20px;
+
+            font-size: 18px;
+
+            font-weight: 800;
+
+            border-radius: 16px;
+
+        }
+
+
+        /* ================================
        CLINIC LOCATOR
     ================================= */
 
-    .locator-layout {
+        .locator-layout {
 
-      display: grid;
+            display: grid;
 
-      grid-template-columns:
-        1.2fr
-        0.8fr;
+            grid-template-columns:
+                1.2fr 0.8fr;
 
-      gap: 25px;
+            gap: 25px;
 
-    }
+        }
 
 
-    .map {
+        .map {
 
-      height: 550px;
+            height: 550px;
 
-      background:
-        linear-gradient(
-          45deg,
-          rgba(8,119,209,.05)
-          25%,
-          transparent
-          25%
-        ),
-        #e8f5ea;
+            background:
+                linear-gradient(45deg,
+                    rgba(8, 119, 209, .05) 25%,
+                    transparent 25%),
+                #e8f5ea;
 
-      border-radius: 25px;
+            border-radius: 25px;
 
-      border:
-        1px solid var(--border);
+            border:
+                1px solid var(--border);
 
-      position: relative;
+            position: relative;
 
-      overflow: hidden;
+            overflow: hidden;
 
-    }
+        }
 
 
-    .map-title {
+        .map-title {
 
-      position: absolute;
+            position: absolute;
 
-      top: 20px;
+            top: 20px;
 
-      left: 20px;
+            left: 20px;
 
-      background:
-        white;
+            background:
+                white;
 
-      padding:
-        12px 18px;
+            padding:
+                12px 18px;
 
-      border-radius: 12px;
+            border-radius: 12px;
 
-      box-shadow:
-        var(--shadow);
+            box-shadow:
+                var(--shadow);
 
-      z-index: 3;
+            z-index: 3;
 
-      font-weight: 700;
+            font-weight: 700;
 
-    }
+        }
 
 
-    .map-marker {
+        .map-marker {
 
-      position: absolute;
+            position: absolute;
 
-      font-size: 36px;
+            font-size: 36px;
 
-      transform:
-        translate(-50%, -50%);
+            transform:
+                translate(-50%, -50%);
 
-      cursor: pointer;
+            cursor: pointer;
 
-    }
+        }
 
 
-    .marker-one {
+        .marker-one {
 
-      top: 40%;
+            top: 40%;
 
-      left: 45%;
+            left: 45%;
 
-    }
+        }
 
 
-    .marker-two {
+        .marker-two {
 
-      top: 65%;
+            top: 65%;
 
-      left: 65%;
+            left: 65%;
 
-    }
+        }
 
 
-    .marker-three {
+        .marker-three {
 
-      top: 25%;
+            top: 25%;
 
-      left: 70%;
+            left: 70%;
 
-    }
+        }
 
 
-    .clinic-list {
+        .clinic-list {
 
-      display: flex;
+            display: flex;
 
-      flex-direction: column;
+            flex-direction: column;
 
-      gap: 15px;
+            gap: 15px;
 
-    }
+        }
 
 
-    .clinic-card {
+        .clinic-card {
 
-      background:
-        white;
+            background:
+                white;
 
-      padding: 20px;
+            padding: 20px;
 
-      border-radius: 18px;
+            border-radius: 18px;
 
-      border:
-        1px solid var(--border);
+            border:
+                1px solid var(--border);
 
-    }
+        }
 
 
-    .clinic-card p {
+        .clinic-card p {
 
-      color:
-        var(--muted);
+            color:
+                var(--muted);
 
-      margin:
-        7px 0;
+            margin:
+                7px 0;
 
-    }
+        }
 
 
-    .distance {
+        .distance {
 
-      color:
-        var(--green)
-        !important;
+            color:
+                var(--green) !important;
 
-      font-weight: 700;
+            font-weight: 700;
 
-    }
+        }
 
 
-    /* ================================
+        /* ================================
        CONTACTS
     ================================= */
 
-    .contact-grid {
+        .contact-grid {
 
-      display: grid;
+            display: grid;
 
-      grid-template-columns:
-        repeat(3, 1fr);
+            grid-template-columns:
+                repeat(3, 1fr);
 
-      gap: 22px;
+            gap: 22px;
 
-    }
-
-
-    .contact-card {
-
-      background:
-        white;
-
-      padding: 28px;
-
-      border-radius: 22px;
-
-      border:
-        1px solid var(--border);
-
-      text-align: center;
-
-    }
+        }
 
 
-    .contact-icon {
+        .contact-card {
 
-      font-size: 42px;
+            background:
+                white;
 
-      margin-bottom: 15px;
+            padding: 28px;
 
-    }
+            border-radius: 22px;
 
+            border:
+                1px solid var(--border);
 
-    .contact-number {
+            text-align: center;
 
-      font-size: 25px;
-
-      color:
-        var(--primary);
-
-      font-weight: 800;
-
-      margin:
-        12px 0;
-
-    }
+        }
 
 
-    /* ================================
+        .contact-icon {
+
+            font-size: 42px;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .contact-number {
+
+            font-size: 25px;
+
+            color:
+                var(--primary);
+
+            font-weight: 800;
+
+            margin:
+                12px 0;
+
+        }
+
+
+        /* ================================
        FLOATING EMERGENCY BUTTON
     ================================= */
 
-    .floating-emergency {
+        .floating-emergency {
 
-      position: fixed;
+            position: fixed;
 
-      right: 25px;
+            right: 25px;
 
-      bottom: 25px;
+            bottom: 25px;
 
-      z-index: 999;
+            z-index: 999;
 
-      background:
-        var(--danger);
+            background:
+                var(--danger);
 
-      color:
-        white;
+            color:
+                white;
 
-      padding:
-        16px 22px;
+            padding:
+                16px 22px;
 
-      border-radius: 50px;
+            border-radius: 50px;
 
-      box-shadow:
-        0 15px 35px
-        rgba(239,68,68,0.35);
+            box-shadow:
+                0 15px 35px rgba(239, 68, 68, 0.35);
 
-      font-weight: 800;
+            font-weight: 800;
 
-      animation:
-        pulse
-        2s
-        infinite;
+            animation:
+                pulse 2s infinite;
 
-    }
+        }
 
 
-    @keyframes pulse {
+        @keyframes pulse {
 
-      50% {
+            50% {
 
-        transform:
-          scale(1.05);
+                transform:
+                    scale(1.05);
 
-      }
+            }
 
-    }
+        }
 
 
-    /* ================================
+        /* ================================
        TOAST
     ================================= */
 
-    .toast {
+        .toast {
 
-      position: fixed;
+            position: fixed;
 
-      top: 90px;
+            top: 90px;
 
-      right: 25px;
+            right: 25px;
 
-      z-index: 2000;
+            z-index: 2000;
 
-      padding:
-        16px 22px;
+            padding:
+                16px 22px;
 
-      background:
-        #10233f;
+            background:
+                #10233f;
 
-      color:
-        white;
+            color:
+                white;
 
-      border-radius: 14px;
+            border-radius: 14px;
 
-      box-shadow:
-        var(--shadow);
+            box-shadow:
+                var(--shadow);
 
-      display: none;
+            display: none;
 
-    }
-
-
-    .toast.show {
-
-      display: block;
-
-      animation:
-        fadeIn
-        0.3s
-        ease;
-
-    }
+        }
 
 
-    /* ================================
+        .toast.show {
+
+            display: block;
+
+            animation:
+                fadeIn 0.3s ease;
+
+        }
+
+
+        /* ================================
        FOOTER
     ================================= */
 
-    footer {
+        footer {
 
-      background:
-        #08243d;
+            background:
+                #08243d;
 
-      color:
-        white;
+            color:
+                white;
 
-      padding:
-        55px
-        24px
-        25px;
+            padding:
+                55px 24px 25px;
 
-    }
+        }
 
 
-    .footer-grid {
+        .footer-grid {
 
-      max-width: 1250px;
+            max-width: 1250px;
 
-      margin: auto;
+            margin: auto;
 
-      display: grid;
+            display: grid;
 
-      grid-template-columns:
-        2fr
-        1fr
-        1fr;
+            grid-template-columns:
+                2fr 1fr 1fr;
 
-      gap: 40px;
+            gap: 40px;
 
-    }
+        }
 
 
-    footer p {
+        footer p {
 
-      color:
-        #aac4d8;
+            color:
+                #aac4d8;
 
-      line-height: 1.7;
+            line-height: 1.7;
 
-      margin-top: 15px;
+            margin-top: 15px;
 
-    }
-
-
-    footer h4 {
-
-      margin-bottom: 18px;
-
-    }
+        }
 
 
-    footer button {
+        footer h4 {
 
-      display: block;
+            margin-bottom: 18px;
 
-      background:
-        transparent;
-
-      color:
-        #aac4d8;
-
-      margin-bottom: 12px;
-
-      text-align: left;
-
-    }
+        }
 
 
-    .copyright {
+        footer button {
 
-      max-width: 1250px;
+            display: block;
 
-      margin:
-        40px
-        auto
-        0;
+            background:
+                transparent;
 
-      padding-top: 20px;
+            color:
+                #aac4d8;
 
-      border-top:
-        1px solid
-        rgba(255,255,255,0.12);
+            margin-bottom: 12px;
 
-      color:
-        #aac4d8;
+            text-align: left;
 
-      text-align: center;
-
-    }
+        }
 
 
-    /* ================================
+        .copyright {
+
+            max-width: 1250px;
+
+            margin:
+                40px auto 0;
+
+            padding-top: 20px;
+
+            border-top:
+                1px solid rgba(255, 255, 255, 0.12);
+
+            color:
+                #aac4d8;
+
+            text-align: center;
+
+        }
+
+
+        /* ================================
        RESPONSIVE
     ================================= */
 
-    @media (
-      max-width: 950px
-    ) {
+        @media (max-width: 950px) {
 
-      .hero-container,
-      .chat-layout,
-      .profile-grid,
-      .locator-layout {
+            .hero-container,
+            .chat-layout,
+            .profile-grid,
+            .locator-layout {
 
-        grid-template-columns:
-          1fr;
+                grid-template-columns:
+                    1fr;
 
-      }
+            }
 
-      .services-grid,
-      .contact-grid {
+            .services-grid,
+            .contact-grid {
 
-        grid-template-columns:
-          repeat(2, 1fr);
+                grid-template-columns:
+                    repeat(2, 1fr);
 
-      }
+            }
 
-      .nav-links {
+            .nav-links {
 
-        display: none;
+                display: none;
 
-      }
+            }
 
-    }
+        }
 
 
-    @media (
-      max-width: 600px
-    ) {
+        @media (max-width: 600px) {
 
-      .services-grid,
-      .contact-grid,
-      .scheme-grid,
-      .health-info {
+            .services-grid,
+            .contact-grid,
+            .scheme-grid,
+            .health-info {
 
-        grid-template-columns:
-          1fr;
+                grid-template-columns:
+                    1fr;
 
-      }
+            }
 
-      .hero h1 {
+            .hero h1 {
 
-        font-size: 42px;
+                font-size: 42px;
 
-      }
+            }
 
-      .section-title h2 {
+            .section-title h2 {
 
-        font-size: 32px;
+                font-size: 32px;
 
-      }
+            }
 
-      .emergency-banner {
+            .emergency-banner {
 
-        flex-direction:
-          column;
+                flex-direction:
+                    column;
 
-        align-items:
-          flex-start;
+                align-items:
+                    flex-start;
 
-      }
+            }
 
-      .footer-grid {
+            .footer-grid {
 
-        grid-template-columns:
-          1fr;
+                grid-template-columns:
+                    1fr;
 
-      }
+            }
 
-      .mini-info {
+            .mini-info {
 
-        position: relative;
+                position: relative;
 
-        margin: 10px;
+                margin: 10px;
 
-      }
+            }
 
-      .mini-info.one,
-      .mini-info.two {
+            .mini-info.one,
+            .mini-info.two {
 
-        left: auto;
+                left: auto;
 
-        right: auto;
+                right: auto;
 
-        top: auto;
+                top: auto;
 
-        bottom: auto;
+                bottom: auto;
 
-      }
+            }
 
-      .form-navigation {
+            .form-navigation {
 
-        flex-direction:
-          column;
+                flex-direction:
+                    column;
 
-      }
+            }
 
-    }
+        }
 
-  </style>
+
+        /* Language switch — fits inside the navbar */
+        .language-switch {
+            position: relative;
+            flex-shrink: 0;
+            margin-left: 12px;
+            z-index: 10;
+        }
+
+        #languageBtn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+            min-height: 46px;
+            padding: 10px 16px;
+            background: #0877d1;
+            color: #fff;
+            border: 1px solid #fff;
+            border-radius: 14px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(8, 119, 209, 0.18);
+            transition: background 0.2s ease;
+        }
+
+        #languageBtn:hover {
+            background: #045a9f;
+        }
+
+        /* Keep Google's selector available to JavaScript */
+        #google_translate_element {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip-path: inset(50%);
+        }
+
+        /* Smaller screens */
+        @media (max-width: 768px) {
+            .language-switch {
+                margin-left: 6px;
+            }
+
+            #languageBtn {
+                min-height: 40px;
+                padding: 8px 10px;
+                font-size: 12px;
+            }
+        }
+
+/* CHILD HEALTH MODULE */
+.child-panel{background:#fff;border:1px solid var(--border);border-radius:22px;padding:24px;margin-bottom:22px;box-shadow:0 8px 25px rgba(20,70,120,.05)}
+.child-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.child-grid .form-group{margin-bottom:10px}
+.child-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.child-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:18px}
+.child-record{background:#f4faff;border:1px solid var(--border);border-radius:14px;padding:16px}
+.child-record p{margin:7px 0;color:var(--muted);line-height:1.5;overflow-wrap:anywhere}
+.child-note{font-size:13px;color:var(--muted);line-height:1.6;margin-top:12px}
+.child-status{padding:12px 14px;border-radius:12px;margin-top:12px;line-height:1.5}
+.child-status.green{background:#eafbf4;color:#116b4c}
+.child-status.yellow{background:#fff7df;color:#815900}
+.child-status.red{background:#fff0f0;color:#a51d1d}
+.child-table{width:100%;border-collapse:collapse;margin-top:14px}
+.child-table th,.child-table td{padding:11px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+.child-table th{color:var(--primary-dark);background:#f4faff}
+.child-table button{color:var(--primary);background:transparent;font-weight:700}
+.child-launch{margin:24px 0;padding:22px;background:#eaf7ff;border:1px solid var(--border);border-radius:20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+@media(max-width:650px){.child-grid{grid-template-columns:1fr}.child-launch{align-items:flex-start;flex-direction:column}.child-table{font-size:13px}}
+
+    </style>
 
 </head>
 
@@ -2339,2728 +2333,2592 @@
 <body>
 
 
-  <!-- TOAST -->
 
-  <div
-    class="toast"
-    id="toast"
-  ></div>
+    <!-- TOAST -->
+
+    <div class="toast" id="toast"></div>
 
 
-  <!-- FLOATING EMERGENCY BUTTON -->
+    <!-- FLOATING EMERGENCY BUTTON -->
 
-  <button
-    class="floating-emergency"
-    onclick="showPage('ambulance')"
-  >
+    <button class="floating-emergency" onclick="showPage('ambulance')">
 
-    🚑 Emergency Help
+        🚑 Emergency Help
 
-  </button>
+    </button>
 
 
 
-  <!-- =====================================
+    <!-- =====================================
        HOME PAGE
   ====================================== -->
 
-  <div
-    class="page active"
-    id="home"
-  >
+    <div class="page active" id="home">
 
 
-    <nav>
+        <nav>
 
-      <div class="nav-container">
-
-
-        <div
-          class="brand"
-          onclick="showPage('home')"
-        >
-
-          <div class="brand-logo">
-            🏥
-          </div>
+            <div class="nav-container">
 
 
-          <div>
+                <div class="brand" onclick="showPage('home')">
 
-            <h2>
-              Gramrahi
-            </h2>
-
-            <span>
-              Healthcare for Every Citizen
-            </span>
-
-          </div>
-
-        </div>
+                    <div class="brand-logo">
+                        🏥
+                    </div>
 
 
-        <div class="nav-links">
+                    <div>
 
-          <button onclick="showPage('home')">
-            Home
-          </button>
+                        <h2>
+                            Gramrahi
+                        </h2>
 
-          <button onclick="showPage('guide')">
-            AI Guide
-          </button>
+                        <span>
+                            Healthcare for Every Citizen
+                        </span>
 
-          <button onclick="showPage('locator')">
-            Find Clinics
-          </button>
+                    </div>
 
-          <button onclick="showPage('schemes')">
-            Schemes
-          </button>
-
-          <button
-            class="nav-login"
-            onclick="showPage('login')"
-          >
-            Login
-          </button>
-
-        </div>
+                </div>
 
 
-      </div>
+                <div class="nav-links">
 
-    </nav>
+                    <button onclick="showPage('home')">
+                        Home
+                    </button>
 
+                    <button onclick="showPage('guide')">
+                        AI Guide
+                    </button>
 
+                    <button onclick="showPage('locator')">
+                        Find Clinics
+                    </button>
 
-    <section class="hero">
+                    <button onclick="showPage('schemes')">
+                        Schemes
+                    </button>
 
-      <div class="hero-container">
+                    <button class="nav-login" onclick="showPage('login')">
+                        Login
+                    </button>
 
+                </div>
 
-        <div>
+                <div class="language-switch">
+                    <button id="languageBtn" type="button" onclick="toggleLanguage()">
+                        🌐 हिंदी में देखें
+                    </button>
 
-
-          <div class="badge">
-
-            🇮🇳 Accessible Healthcare for Every Citizen
-
-          </div>
-
-
-          <h1>
-
-            Healthcare That
-
-            <span>
-              Reaches Everyone.
-            </span>
-
-          </h1>
-
-
-          <p>
-
-            Gramrahi connects citizens with essential healthcare services,
-            nearby medical facilities, government benefits, emergency
-            support and simple healthcare guidance.
-
-          </p>
-
-
-          <div class="journey">
-
-            <div class="journey-step">
-              1. Login
+                    <div id="google_translate_element"></div>
+                </div>
             </div>
 
-            <div class="arrow">
-              →
+        </nav>
+
+
+
+        <section class="hero">
+
+            <div class="hero-container">
+
+
+                <div>
+
+
+                    <div class="badge">
+
+                        🇮🇳 Accessible Healthcare for Every Citizen
+
+                    </div>
+
+
+                    <h1>
+
+                        Healthcare That
+
+                        <span>
+                            Reaches Everyone.
+                        </span>
+
+                    </h1>
+
+
+                    <p>
+
+                        Gramrahi connects citizens with essential healthcare services,
+                        nearby medical facilities, government benefits, emergency
+                        support and simple healthcare guidance.
+
+                    </p>
+
+
+                    <div class="journey">
+
+                        <div class="journey-step">
+                            1. Login
+                        </div>
+
+                        <div class="arrow">
+                            →
+                        </div>
+
+                        <div class="journey-step">
+                            2. AI Guide
+                        </div>
+
+                        <div class="arrow">
+                            →
+                        </div>
+
+                        <div class="journey-step">
+                            3. Select Service
+                        </div>
+
+                        <div class="arrow">
+                            →
+                        </div>
+
+                        <div class="journey-step">
+                            4. Get Help
+                        </div>
+
+                    </div>
+
+
+                    <div class="hero-buttons">
+
+                        <button class="primary-btn" onclick="showPage('login')">
+
+                            Get Started →
+
+                        </button>
+
+
+                        <button class="secondary-btn" onclick="showPage('guide')">
+
+                            🤖 Talk to AI Guide
+
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="hero-visual">
+
+
+                    <div class="health-card">
+
+                        <div class="doctor-illustration">
+
+                            👩‍⚕️
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="mini-info one">
+
+                        🧠 AI Healthcare Guide
+
+                    </div>
+
+
+                    <div class="mini-info two">
+
+                        📍 Find Care Nearby
+
+                    </div>
+
+
+                </div>
+
+
             </div>
 
-            <div class="journey-step">
-              2. AI Guide
+        </section>
+
+
+
+        <!-- SERVICES -->
+
+        <section>
+
+            <div class="container">
+
+
+                <div class="section-title">
+
+                    <h2>
+                        Healthcare Services Made Simple
+                    </h2>
+
+                    <p>
+
+                        Everything you need to access essential healthcare services
+                        in one simple and trusted platform.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="services-grid">
+
+
+                    <div class="service-card">
+
+                        <div class="service-icon">
+                            🤖
+                        </div>
+
+                        <h3>
+                            AI Healthcare Guide
+                        </h3>
+
+                        <p>
+                            Get simple guidance and navigate healthcare services.
+                        </p>
+
+                        <button class="card-link" onclick="showPage('guide')">
+                            Ask AI Guide →
+                        </button>
+
+                    </div>
+
+
+
+                    <div class="service-card">
+
+                        <div class="service-icon">
+                            📍
+                        </div>
+
+                        <h3>
+                            Find Nearby Clinics
+                        </h3>
+
+                        <p>
+                            Discover nearby hospitals and healthcare centers.
+                        </p>
+
+                        <button class="card-link" onclick="showPage('locator')">
+                            Find Clinics →
+                        </button>
+
+                    </div>
+
+
+
+                    <div class="service-card">
+
+                        <div class="service-icon">
+                            📋
+                        </div>
+
+                        <h3>
+                            Scheme Eligibility
+                        </h3>
+
+                        <p>
+                            Check healthcare schemes based on your eligibility.
+                        </p>
+
+                        <button class="card-link" onclick="showPage('schemes')">
+                            Check Eligibility →
+                        </button>
+
+                    </div>
+
+
+
+                    <div class="service-card">
+
+                        <div class="service-icon">
+                            👤
+                        </div>
+
+                        <h3>
+                            Patient Profile
+                        </h3>
+
+                        <p>
+                            Manage your health information securely.
+                        </p>
+
+                        <button class="card-link" onclick="showPage('profile')">
+                            View Profile →
+                        </button>
+
+                    </div>
+
+
+
+                    <div class="service-card">
+
+                        <div class="service-icon">
+                            🚑
+                        </div>
+
+                        <h3>
+                            Emergency Ambulance
+                        </h3>
+
+                        <p>
+                            Quickly request emergency medical assistance.
+                        </p>
+
+                        <button class="card-link" onclick="showPage('ambulance')">
+                            Request Ambulance →
+                        </button>
+
+                    </div>
+
+
+
+                    <div class="service-card">
+
+                        <div class="service-icon">
+                            ☎️
+                        </div>
+
+                        <h3>
+                            Healthcare Contacts
+                        </h3>
+
+                        <p>
+                            Access important emergency contact numbers.
+                        </p>
+
+                        <button class="card-link" onclick="showPage('contacts')">
+                            View Contacts →
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+
+
+
+                <div class="child-launch">
+                    <div>
+                        <h3>👶 Child Healthcare</h3>
+                        <p style="margin-top:6px;color:var(--muted)">Manage child profiles, vaccination records, growth checks, symptom guidance and child-related schemes.</p>
+                    </div>
+                    <button class="primary-btn" onclick="showPage('children')">Open Child Healthcare →</button>
+                </div>
+
+                <div style="margin-top:55px;" class="emergency-banner">
+
+                    <div>
+
+                        <h2>
+                            🚨 Need Emergency Medical Help?
+                        </h2>
+
+                        <p>
+                            Request emergency assistance quickly.
+                        </p>
+
+                    </div>
+
+
+                    <button class="emergency-btn" onclick="showPage('ambulance')">
+
+                        🚑 Request Ambulance
+
+                    </button>
+
+
+                </div>
+
+
             </div>
 
-            <div class="arrow">
-              →
+        </section>
+
+
+
+        <footer>
+
+            <div class="footer-grid">
+
+
+                <div>
+
+                    <h2>
+                        🏥 Gramrahi
+                    </h2>
+
+                    <p>
+
+                        Bridging healthcare to every corner of India.
+
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <h4>
+                        Services
+                    </h4>
+
+                    <button onclick="showPage('guide')">
+                        AI Healthcare Guide
+                    </button>
+
+                    <button onclick="showPage('locator')">
+                        Find Clinics
+                    </button>
+
+                    <button onclick="showPage('schemes')">
+                        Government Schemes
+                    </button>
+
+                </div>
+
+
+                <div>
+
+                    <h4>
+                        Quick Access
+                    </h4>
+
+                    <button onclick="showPage('profile')">
+                        Patient Profile
+                    </button>
+
+                    <button onclick="showPage('contacts')">
+                        Healthcare Contacts
+                    </button>
+
+                    <button onclick="showPage('ambulance')">
+                        Emergency Ambulance
+                    </button>
+
+                </div>
+
+
             </div>
 
-            <div class="journey-step">
-              3. Select Service
-            </div>
 
-            <div class="arrow">
-              →
-            </div>
+            <div class="copyright">
 
-            <div class="journey-step">
-              4. Get Help
-            </div>
-
-          </div>
-
-
-          <div class="hero-buttons">
-
-            <button
-              class="primary-btn"
-              onclick="showPage('login')"
-            >
-
-              Get Started →
-
-            </button>
-
-
-            <button
-              class="secondary-btn"
-              onclick="showPage('guide')"
-            >
-
-              🤖 Talk to AI Guide
-
-            </button>
-
-          </div>
-
-
-        </div>
-
-
-
-        <div class="hero-visual">
-
-
-          <div class="health-card">
-
-            <div class="doctor-illustration">
-
-              👩‍⚕️
+                © 2026 Gramrahi • Connecting Every Citizen to Better Healthcare
 
             </div>
 
-          </div>
+        </footer>
 
 
-          <div class="mini-info one">
+    </div>
 
-            🧠 AI Healthcare Guide
 
-          </div>
 
-
-          <div class="mini-info two">
-
-            📍 Find Care Nearby
-
-          </div>
-
-
-        </div>
-
-
-      </div>
-
-    </section>
-
-
-
-    <!-- SERVICES -->
-
-    <section>
-
-      <div class="container">
-
-
-        <div class="section-title">
-
-          <h2>
-            Healthcare Services Made Simple
-          </h2>
-
-          <p>
-
-            Everything you need to access essential healthcare services
-            in one simple and trusted platform.
-
-          </p>
-
-        </div>
-
-
-
-        <div class="services-grid">
-
-
-          <div class="service-card">
-
-            <div class="service-icon">
-              🤖
-            </div>
-
-            <h3>
-              AI Healthcare Guide
-            </h3>
-
-            <p>
-              Get simple guidance and navigate healthcare services.
-            </p>
-
-            <button
-              class="card-link"
-              onclick="showPage('guide')"
-            >
-              Ask AI Guide →
-            </button>
-
-          </div>
-
-
-
-          <div class="service-card">
-
-            <div class="service-icon">
-              📍
-            </div>
-
-            <h3>
-              Find Nearby Clinics
-            </h3>
-
-            <p>
-              Discover nearby hospitals and healthcare centers.
-            </p>
-
-            <button
-              class="card-link"
-              onclick="showPage('locator')"
-            >
-              Find Clinics →
-            </button>
-
-          </div>
-
-
-
-          <div class="service-card">
-
-            <div class="service-icon">
-              📋
-            </div>
-
-            <h3>
-              Scheme Eligibility
-            </h3>
-
-            <p>
-              Check healthcare schemes based on your eligibility.
-            </p>
-
-            <button
-              class="card-link"
-              onclick="showPage('schemes')"
-            >
-              Check Eligibility →
-            </button>
-
-          </div>
-
-
-
-          <div class="service-card">
-
-            <div class="service-icon">
-              👤
-            </div>
-
-            <h3>
-              Patient Profile
-            </h3>
-
-            <p>
-              Manage your health information securely.
-            </p>
-
-            <button
-              class="card-link"
-              onclick="showPage('profile')"
-            >
-              View Profile →
-            </button>
-
-          </div>
-
-
-
-          <div class="service-card">
-
-            <div class="service-icon">
-              🚑
-            </div>
-
-            <h3>
-              Emergency Ambulance
-            </h3>
-
-            <p>
-              Quickly request emergency medical assistance.
-            </p>
-
-            <button
-              class="card-link"
-              onclick="showPage('ambulance')"
-            >
-              Request Ambulance →
-            </button>
-
-          </div>
-
-
-
-          <div class="service-card">
-
-            <div class="service-icon">
-              ☎️
-            </div>
-
-            <h3>
-              Healthcare Contacts
-            </h3>
-
-            <p>
-              Access important emergency contact numbers.
-            </p>
-
-            <button
-              class="card-link"
-              onclick="showPage('contacts')"
-            >
-              View Contacts →
-            </button>
-
-          </div>
-
-
-        </div>
-
-
-
-        <div
-          style="margin-top:55px;"
-          class="emergency-banner"
-        >
-
-          <div>
-
-            <h2>
-              🚨 Need Emergency Medical Help?
-            </h2>
-
-            <p>
-              Request emergency assistance quickly.
-            </p>
-
-          </div>
-
-
-          <button
-            class="emergency-btn"
-            onclick="showPage('ambulance')"
-          >
-
-            🚑 Request Ambulance
-
-          </button>
-
-
-        </div>
-
-
-      </div>
-
-    </section>
-
-
-
-    <footer>
-
-      <div class="footer-grid">
-
-
-        <div>
-
-          <h2>
-            🏥 Gramrahi
-          </h2>
-
-          <p>
-
-            Bridging healthcare to every corner of India.
-
-          </p>
-
-        </div>
-
-
-        <div>
-
-          <h4>
-            Services
-          </h4>
-
-          <button onclick="showPage('guide')">
-            AI Healthcare Guide
-          </button>
-
-          <button onclick="showPage('locator')">
-            Find Clinics
-          </button>
-
-          <button onclick="showPage('schemes')">
-            Government Schemes
-          </button>
-
-        </div>
-
-
-        <div>
-
-          <h4>
-            Quick Access
-          </h4>
-
-          <button onclick="showPage('profile')">
-            Patient Profile
-          </button>
-
-          <button onclick="showPage('contacts')">
-            Healthcare Contacts
-          </button>
-
-          <button onclick="showPage('ambulance')">
-            Emergency Ambulance
-          </button>
-
-        </div>
-
-
-      </div>
-
-
-      <div class="copyright">
-
-        © 2026 Gramrahi • Connecting Every Citizen to Better Healthcare
-
-      </div>
-
-    </footer>
-
-
-  </div>
-
-
-
-  <!-- =====================================
+    <!-- =====================================
        LOGIN PAGE
   ====================================== -->
 
-  <div
-    class="page"
-    id="login"
-  >
+    <div class="page" id="login">
 
 
-    <nav>
+        <nav>
 
-      <div class="nav-container">
+            <div class="nav-container">
 
 
-        <div
-          class="brand"
-          onclick="showPage('home')"
-        >
+                <div class="brand" onclick="showPage('home')">
 
-          <div class="brand-logo">
-            🏥
-          </div>
+                    <div class="brand-logo">
+                        🏥
+                    </div>
 
-          <div>
+                    <div>
 
-            <h2>
-              Gramrahi
-            </h2>
+                        <h2>
+                            Gramrahi
+                        </h2>
 
-            <span>
-              Secure Healthcare Access
-            </span>
+                        <span>
+                            Secure Healthcare Access
+                        </span>
 
-          </div>
+                    </div>
+
+                </div>
+
+
+                <button class="secondary-btn" onclick="showPage('home')">
+
+                    ← Back to Home
+
+                </button>
+
+
+            </div>
+
+        </nav>
+
+
+
+        <div class="page-header">
+
+            <h1>
+                Login to Gramrahi
+            </h1>
+
+            <p>
+                Login securely and complete your healthcare profile.
+            </p>
 
         </div>
 
 
-        <button
-          class="secondary-btn"
-          onclick="showPage('home')"
-        >
 
-          ← Back to Home
-
-        </button>
+        <div class="login-box">
 
 
-      </div>
+            <!-- STEP PROGRESS -->
 
-    </nav>
+            <div class="step-progress">
+
+                <div class="step-dot active" id="dot1"></div>
+
+                <div class="step-dot" id="dot2"></div>
+
+                <div class="step-dot" id="dot3"></div>
+
+            </div>
 
 
 
-    <div class="page-header">
+            <!-- STEP 1 -->
 
-      <h1>
-        Login to Gramrahi
-      </h1>
+            <div class="form-step active-step" id="step1">
 
-      <p>
-        Login securely and complete your healthcare profile.
-      </p>
+                <h2>
+                    Welcome to Gramrahi 👋
+                </h2>
+
+                <p>
+                    Enter your mobile number to continue.
+                </p>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Mobile Number
+                    </label>
+
+                    <input id="mobileNumber" type="tel" placeholder="Enter 10 digit mobile number" maxlength="10">
+
+                </div>
+
+
+                <button class="full-btn" onclick="sendOTP()">
+
+                    Send OTP →
+
+                </button>
+
+            </div>
+
+
+
+            <!-- STEP 2 -->
+
+            <div class="form-step" id="step2">
+
+                <button class="back-btn" onclick="showStep(1)">
+
+                    ← Back
+
+                </button>
+
+
+                <h2>
+                    Verify OTP 🔐
+                </h2>
+
+                <p>
+                    Enter the OTP sent to your mobile number.
+                </p>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Enter OTP
+                    </label>
+
+                    <input id="otpInput" type="text" maxlength="6" placeholder="For testing use 123456">
+
+                </div>
+
+
+                <button class="full-btn" onclick="verifyOTP()">
+
+                    Verify OTP →
+
+                </button>
+
+            </div>
+
+
+
+            <!-- STEP 3 -->
+
+            <div class="form-step" id="step3">
+
+                <button class="back-btn" onclick="showStep(2)">
+
+                    ← Back
+
+                </button>
+
+
+                <h2>
+                    Complete Your Health Profile 🏥
+                </h2>
+
+                <p>
+                    Basic information helps us provide better healthcare guidance.
+                </p>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Full Name *
+                    </label>
+
+                    <input id="patientName" type="text" placeholder="Enter your full name">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Age *
+                    </label>
+
+                    <input id="patientAge" type="text" placeholder="Enter your age">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Gender *
+                    </label>
+
+                    <select id="patientGender">
+
+                        <option value="">
+                            Select Gender
+                        </option>
+
+                        <option>
+                            Male
+                        </option>
+
+                        <option>
+                            Female
+                        </option>
+
+                        <option>
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Blood Group *
+                    </label>
+
+                    <select id="bloodGroup">
+
+                        <option value="">
+                            Select Blood Group
+                        </option>
+
+                        <option>A+</option>
+                        <option>A-</option>
+                        <option>B+</option>
+                        <option>B-</option>
+                        <option>AB+</option>
+                        <option>AB-</option>
+                        <option>O+</option>
+                        <option>O-</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Existing Medical Condition
+                    </label>
+
+                    <select id="medicalCondition">
+
+                        <option value="">
+                            Select Option
+                        </option>
+
+                        <option>
+                            No Known Condition
+                        </option>
+
+                        <option>
+                            Diabetes
+                        </option>
+
+                        <option>
+                            Blood Pressure
+                        </option>
+
+                        <option>
+                            Heart Condition
+                        </option>
+
+                        <option>
+                            Asthma
+                        </option>
+
+                        <option>
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Allergies
+                    </label>
+
+                    <input id="allergies" type="text" placeholder="Example: Dust, Food, Medicine">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Emergency Contact Number
+                    </label>
+
+                    <input id="emergencyContact" type="tel" maxlength="10" placeholder="Enter emergency contact number">
+
+                </div>
+
+
+                <div class="form-navigation">
+
+
+                    <button class="previous-btn" onclick="showStep(2)">
+
+                        ← Back
+
+                    </button>
+
+
+                    <button class="next-btn" onclick="completeProfile()">
+
+                        Complete Profile →
+
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
 
     </div>
 
 
 
-    <div class="login-box">
-
-
-      <!-- STEP PROGRESS -->
-
-      <div class="step-progress">
-
-        <div
-          class="step-dot active"
-          id="dot1"
-        ></div>
-
-        <div
-          class="step-dot"
-          id="dot2"
-        ></div>
-
-        <div
-          class="step-dot"
-          id="dot3"
-        ></div>
-
-      </div>
-
-
-
-      <!-- STEP 1 -->
-
-      <div
-        class="form-step active-step"
-        id="step1"
-      >
-
-        <h2>
-          Welcome to Gramrahi 👋
-        </h2>
-
-        <p>
-          Enter your mobile number to continue.
-        </p>
-
-
-        <div class="form-group">
-
-          <label>
-            Mobile Number
-          </label>
-
-          <input
-            id="mobileNumber"
-            type="tel"
-            placeholder="Enter 10 digit mobile number"
-            maxlength="10"
-          >
-
-        </div>
-
-
-        <button
-          class="full-btn"
-          onclick="sendOTP()"
-        >
-
-          Send OTP →
-
-        </button>
-
-      </div>
-
-
-
-      <!-- STEP 2 -->
-
-      <div
-        class="form-step"
-        id="step2"
-      >
-
-        <button
-          class="back-btn"
-          onclick="showStep(1)"
-        >
-
-          ← Back
-
-        </button>
-
-
-        <h2>
-          Verify OTP 🔐
-        </h2>
-
-        <p>
-          Enter the OTP sent to your mobile number.
-        </p>
-
-
-        <div class="form-group">
-
-          <label>
-            Enter OTP
-          </label>
-
-          <input
-            id="otpInput"
-            type="text"
-            maxlength="6"
-            placeholder="For testing use 123456"
-          >
-
-        </div>
-
-
-        <button
-          class="full-btn"
-          onclick="verifyOTP()"
-        >
-
-          Verify OTP →
-
-        </button>
-
-      </div>
-
-
-
-      <!-- STEP 3 -->
-
-      <div
-        class="form-step"
-        id="step3"
-      >
-
-        <button
-          class="back-btn"
-          onclick="showStep(2)"
-        >
-
-          ← Back
-
-        </button>
-
-
-        <h2>
-          Complete Your Health Profile 🏥
-        </h2>
-
-        <p>
-          Basic information helps us provide better healthcare guidance.
-        </p>
-
-
-        <div class="form-group">
-
-          <label>
-            Full Name *
-          </label>
-
-          <input
-            id="patientName"
-            type="text"
-            placeholder="Enter your full name"
-          >
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label>
-            Age *
-          </label>
-
-          <input
-            id="patientAge"
-            type="text"
-            placeholder="Enter your age"
-          >
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label>
-            Gender *
-          </label>
-
-          <select id="patientGender">
-
-            <option value="">
-              Select Gender
-            </option>
-
-            <option>
-              Male
-            </option>
-
-            <option>
-              Female
-            </option>
-
-            <option>
-              Other
-            </option>
-
-          </select>
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label>
-            Blood Group *
-          </label>
-
-          <select id="bloodGroup">
-
-            <option value="">
-              Select Blood Group
-            </option>
-
-            <option>A+</option>
-            <option>A-</option>
-            <option>B+</option>
-            <option>B-</option>
-            <option>AB+</option>
-            <option>AB-</option>
-            <option>O+</option>
-            <option>O-</option>
-
-          </select>
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label>
-            Existing Medical Condition
-          </label>
-
-          <select id="medicalCondition">
-
-            <option value="">
-              Select Option
-            </option>
-
-            <option>
-              No Known Condition
-            </option>
-
-            <option>
-              Diabetes
-            </option>
-
-            <option>
-              Blood Pressure
-            </option>
-
-            <option>
-              Heart Condition
-            </option>
-
-            <option>
-              Asthma
-            </option>
-
-            <option>
-              Other
-            </option>
-
-          </select>
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label>
-            Allergies
-          </label>
-
-          <input
-            id="allergies"
-            type="text"
-            placeholder="Example: Dust, Food, Medicine"
-          >
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label>
-            Emergency Contact Number
-          </label>
-
-          <input
-            id="emergencyContact"
-            type="tel"
-            maxlength="10"
-            placeholder="Enter emergency contact number"
-          >
-
-        </div>
-
-
-        <div class="form-navigation">
-
-
-          <button
-            class="previous-btn"
-            onclick="showStep(2)"
-          >
-
-            ← Back
-
-          </button>
-
-
-          <button
-            class="next-btn"
-            onclick="completeProfile()"
-          >
-
-            Complete Profile →
-
-          </button>
-
-
-        </div>
-
-
-      </div>
-
-
-    </div>
-
-
-  </div>
-
-
-
-  <!-- =====================================
+    <!-- =====================================
        AI GUIDE
   ====================================== -->
 
-  <div
-    class="page"
-    id="guide"
-  >
+    <div class="page" id="guide">
 
 
-    <nav>
+        <nav>
 
-      <div class="nav-container">
+            <div class="nav-container">
 
-        <div
-          class="brand"
-          onclick="showPage('home')"
-        >
+                <div class="brand" onclick="showPage('home')">
 
-          <div class="brand-logo">
-            🏥
-          </div>
+                    <div class="brand-logo">
+                        🏥
+                    </div>
 
-          <div>
+                    <div>
 
-            <h2>
-              Gramrahi
-            </h2>
+                        <h2>
+                            Gramrahi
+                        </h2>
 
-            <span>
-              AI Healthcare Guide
-            </span>
+                        <span>
+                            AI Healthcare Guide
+                        </span>
 
-          </div>
+                    </div>
 
-        </div>
+                </div>
 
 
-        <button
-          class="secondary-btn"
-          onclick="goBack()"
-        >
+                <button class="secondary-btn" onclick="goBack()">
 
-          ← Back
+                    ← Back
 
-        </button>
+                </button>
 
-      </div>
-
-    </nav>
-
-
-
-    <div class="page-header">
-
-      <h1>
-        🤖 AI Healthcare Guide
-      </h1>
-
-      <p>
-        Your friendly assistant for navigating healthcare services.
-      </p>
-
-    </div>
-
-
-
-    <div class="content-area">
-
-      <div class="chat-layout">
-
-
-        <div class="guide-sidebar">
-
-          <h3>
-            How can I help?
-          </h3>
-
-
-          <button
-            class="quick-action"
-            onclick="quickQuestion('I want to find a nearby clinic')"
-          >
-
-            📍 Find Nearby Clinic
-
-          </button>
-
-
-          <button
-            class="quick-action"
-            onclick="quickQuestion('Check my scheme eligibility')"
-          >
-
-            📋 Government Schemes
-
-          </button>
-
-
-          <button
-            class="quick-action"
-            onclick="quickQuestion('I need emergency ambulance help')"
-          >
-
-            🚑 Emergency Help
-
-          </button>
-
-
-          <button
-            class="quick-action"
-            onclick="quickQuestion('Help me manage my profile')"
-          >
-
-            👤 Patient Profile
-
-          </button>
-
-
-        </div>
-
-
-
-        <div class="chat-window">
-
-
-          <div class="chat-top">
-
-            <div class="ai-avatar">
-              🤖
             </div>
 
+        </nav>
 
-            <div>
 
-              <strong>
-                Gramrahi AI Guide
-              </strong>
 
-              <div
-                style="
+        <div class="page-header">
+
+            <h1>
+                🤖 AI Healthcare Guide
+            </h1>
+
+            <p>
+                Your friendly assistant for navigating healthcare services.
+            </p>
+
+        </div>
+
+
+
+        <div class="content-area">
+
+            <div class="chat-layout">
+
+
+                <div class="guide-sidebar">
+
+                    <h3>
+                        How can I help?
+                    </h3>
+
+
+                    <button class="quick-action" onclick="quickQuestion('I want to find a nearby clinic')">
+
+                        📍 Find Nearby Clinic
+
+                    </button>
+
+
+                    <button class="quick-action" onclick="quickQuestion('Check my scheme eligibility')">
+
+                        📋 Government Schemes
+
+                    </button>
+
+
+                    <button class="quick-action" onclick="quickQuestion('I need emergency ambulance help')">
+
+                        🚑 Emergency Help
+
+                    </button>
+
+
+                    <button class="quick-action" onclick="quickQuestion('Help me manage my profile')">
+
+                        👤 Patient Profile
+
+                    </button>
+
+
+                </div>
+
+
+
+                <div class="chat-window">
+
+
+                    <div class="chat-top">
+
+                        <div class="ai-avatar">
+                            🤖
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                Gramrahi AI Guide
+                            </strong>
+
+                            <div style="
                   color:#17b978;
                   font-size:13px;
-                "
-              >
+                ">
 
-                ● Online & Ready to Help
+                                ● Online & Ready to Help
 
-              </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="messages" id="messages">
+
+                        <div class="message bot-message">
+
+                            👋 Namaste!
+
+                            <br><br>
+
+                            I am your Gramrahi Healthcare Guide.
+
+                            <br><br>
+
+                            I can help you find clinics, healthcare schemes,
+                            emergency assistance and other services.
+
+                            <br><br>
+
+                            How can I help you today?
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="chat-input">
+
+                        <input id="chatInput" placeholder="Type your question..." onkeypress="handleEnter(event)">
+
+                        <button class="send-btn" onclick="sendMessage()">
+
+                            Send
+
+                        </button>
+
+                    </div>
+
+
+                </div>
+
 
             </div>
-
-
-          </div>
-
-
-
-          <div
-            class="messages"
-            id="messages"
-          >
-
-            <div class="message bot-message">
-
-              👋 Namaste!
-
-              <br><br>
-
-              I am your Gramrahi Healthcare Guide.
-
-              <br><br>
-
-              I can help you find clinics, healthcare schemes,
-              emergency assistance and other services.
-
-              <br><br>
-
-              How can I help you today?
-
-            </div>
-
-          </div>
-
-
-
-          <div class="chat-input">
-
-            <input
-              id="chatInput"
-              placeholder="Type your question..."
-              onkeypress="handleEnter(event)"
-            >
-
-            <button
-              class="send-btn"
-              onclick="sendMessage()"
-            >
-
-              Send
-
-            </button>
-
-          </div>
-
 
         </div>
 
 
-      </div>
-
     </div>
 
 
-  </div>
 
-
-
-  <!-- =====================================
+    <!-- =====================================
        PATIENT PROFILE DASHBOARD
   ====================================== -->
 
-  <div
-    class="page"
-    id="profile"
-  >
+    <div class="page" id="profile">
 
 
-    <nav>
+        <nav>
 
-      <div class="nav-container">
+            <div class="nav-container">
 
-        <div
-          class="brand"
-          onclick="showPage('home')"
-        >
+                <div class="brand" onclick="showPage('home')">
 
-          <div class="brand-logo">
-            🏥
-          </div>
+                    <div class="brand-logo">
+                        🏥
+                    </div>
 
-          <div>
+                    <div>
 
-            <h2>
-              Gramrahi
-            </h2>
+                        <h2>
+                            Gramrahi
+                        </h2>
 
-            <span>
-              Patient Profile
-            </span>
+                        <span>
+                            Patient Profile
+                        </span>
 
-          </div>
+                    </div>
+
+                </div>
+
+
+                <button class="secondary-btn" onclick="goBack()">
+
+                    ← Back
+
+                </button>
+
+            </div>
+
+        </nav>
+
+
+
+        <div class="page-header">
+
+            <h1>
+                Patient Profile
+            </h1>
+
+            <p>
+                Manage your healthcare information.
+            </p>
 
         </div>
 
 
-        <button
-          class="secondary-btn"
-          onclick="goBack()"
-        >
 
-          ← Back
-
-        </button>
-
-      </div>
-
-    </nav>
+        <div class="content-area">
 
 
+            <div class="profile-grid">
 
-    <div class="page-header">
 
-      <h1>
-        Patient Profile
-      </h1>
+                <div class="profile-card">
 
-      <p>
-        Manage your healthcare information.
-      </p>
+                    <div class="profile-avatar">
+                        👤
+                    </div>
+
+                    <h2 id="profileName">
+                        Citizen
+                    </h2>
+
+                    <p id="profilePhone">
+                        📱 Healthcare Profile
+                    </p>
+
+
+                    <button class="primary-btn" style="margin-top:20px;" onclick="showPage('login'); showStep(3)">
+
+                        Edit Profile
+
+                    </button>
+
+
+                </div>
+
+
+
+                <div class="info-card">
+
+                    <h2>
+                        Your Healthcare Information
+                    </h2>
+
+
+                    <div class="health-info">
+
+
+                        <div class="health-item">
+
+                            <span>
+                                Age
+                            </span>
+
+                            <strong id="profileAge">
+                                Not Added
+                            </strong>
+
+                        </div>
+
+
+                        <div class="health-item">
+
+                            <span>
+                                Blood Group
+                            </span>
+
+                            <strong id="profileBlood">
+                                Not Added
+                            </strong>
+
+                        </div>
+
+
+                        <div class="health-item">
+
+                            <span>
+                                Gender
+                            </span>
+
+                            <strong id="profileGender">
+                                Not Added
+                            </strong>
+
+                        </div>
+
+
+                        <div class="health-item">
+
+                            <span>
+                                Medical Condition
+                            </span>
+
+                            <strong id="profileCondition">
+                                Not Added
+                            </strong>
+
+                        </div>
+
+
+                        <div class="health-item">
+
+                            <span>
+                                Allergies
+                            </span>
+
+                            <strong id="profileAllergies">
+                                Not Added
+                            </strong>
+
+                        </div>
+
+
+                        <div class="health-item">
+
+                            <span>
+                                Emergency Contact
+                            </span>
+
+                            <strong id="profileEmergency">
+                                Not Added
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
 
     </div>
 
 
 
-    <div class="content-area">
-
-
-      <div class="profile-grid">
-
-
-        <div class="profile-card">
-
-          <div class="profile-avatar">
-            👤
-          </div>
-
-          <h2 id="profileName">
-            Citizen
-          </h2>
-
-          <p id="profilePhone">
-            📱 Healthcare Profile
-          </p>
-
-
-          <button
-            class="primary-btn"
-            style="margin-top:20px;"
-            onclick="showPage('login'); showStep(3)"
-          >
-
-            Edit Profile
-
-          </button>
-
-
-        </div>
-
-
-
-        <div class="info-card">
-
-          <h2>
-            Your Healthcare Information
-          </h2>
-
-
-          <div class="health-info">
-
-
-            <div class="health-item">
-
-              <span>
-                Age
-              </span>
-
-              <strong id="profileAge">
-                Not Added
-              </strong>
-
-            </div>
-
-
-            <div class="health-item">
-
-              <span>
-                Blood Group
-              </span>
-
-              <strong id="profileBlood">
-                Not Added
-              </strong>
-
-            </div>
-
-
-            <div class="health-item">
-
-              <span>
-                Gender
-              </span>
-
-              <strong id="profileGender">
-                Not Added
-              </strong>
-
-            </div>
-
-
-            <div class="health-item">
-
-              <span>
-                Medical Condition
-              </span>
-
-              <strong id="profileCondition">
-                Not Added
-              </strong>
-
-            </div>
-
-
-            <div class="health-item">
-
-              <span>
-                Allergies
-              </span>
-
-              <strong id="profileAllergies">
-                Not Added
-              </strong>
-
-            </div>
-
-
-            <div class="health-item">
-
-              <span>
-                Emergency Contact
-              </span>
-
-              <strong id="profileEmergency">
-                Not Added
-              </strong>
-
-            </div>
-
-
-          </div>
-
-
-        </div>
-
-
-      </div>
-
-
-    </div>
-
-
-  </div>
-
-
-
-  <!-- =====================================
+    <!-- =====================================
        SCHEME CHECKER
   ====================================== -->
 
-  <div
-    class="page"
-    id="schemes"
-  >
+    <div class="page" id="schemes">
 
 
-    <nav>
+        <nav>
 
-      <div class="nav-container">
+            <div class="nav-container">
 
-        <div
-          class="brand"
-          onclick="showPage('home')"
-        >
+                <div class="brand" onclick="showPage('home')">
 
-          <div class="brand-logo">
-            🏥
-          </div>
+                    <div class="brand-logo">
+                        🏥
+                    </div>
 
-          <div>
+                    <div>
 
-            <h2>
-              Gramrahi
-            </h2>
+                        <h2>
+                            Gramrahi
+                        </h2>
 
-            <span>
-              Healthcare Scheme Eligibility
-            </span>
+                        <span>
+                            Healthcare Scheme Eligibility
+                        </span>
 
-          </div>
+                    </div>
+
+                </div>
+
+
+                <button class="secondary-btn" onclick="goBack()">
+
+                    ← Back
+
+                </button>
+
+            </div>
+
+        </nav>
+
+
+
+        <div class="page-header">
+
+            <h1>
+                Government Healthcare Schemes
+            </h1>
+
+            <p>
+                Check healthcare support based on your basic information.
+            </p>
 
         </div>
 
 
-        <button
-          class="secondary-btn"
-          onclick="goBack()"
-        >
 
-          ← Back
-
-        </button>
-
-      </div>
-
-    </nav>
+        <div class="content-area">
 
 
-
-    <div class="page-header">
-
-      <h1>
-        Government Healthcare Schemes
-      </h1>
-
-      <p>
-        Check healthcare support based on your basic information.
-      </p>
-
-    </div>
+            <div class="scheme-form">
 
 
-
-    <div class="content-area">
-
-
-      <div class="scheme-form">
-
-
-        <h2
-          style="
+                <h2 style="
             margin-bottom:25px;
-          "
-        >
+          ">
 
-          Check Your Eligibility
+                    Check Your Eligibility
 
-        </h2>
-
-
-        <div class="scheme-grid">
+                </h2>
 
 
-          <div class="form-group">
-
-            <label>
-              Your Age
-            </label>
-
-            <input
-              id="schemeAge"
-              type="number"
-              placeholder="Enter your age"
-            >
-
-          </div>
+                <div class="scheme-grid">
 
 
-          <div class="form-group">
+                    <div class="form-group">
 
-            <label>
-              Medical Condition
-            </label>
+                        <label>
+                            Your Age
+                        </label>
 
-            <select id="schemeCondition">
+                        <input id="schemeAge" type="number" placeholder="Enter your age">
 
-              <option value="">
-                Select condition
-              </option>
-
-              <option>
-                General Healthcare
-              </option>
-
-              <option>
-                Pregnancy
-              </option>
-
-              <option>
-                Chronic Illness
-              </option>
-
-              <option>
-                Senior Citizen Care
-              </option>
-
-            </select>
-
-          </div>
+                    </div>
 
 
-          <div class="form-group">
+                    <div class="form-group">
 
-            <label>
-              Annual Income Category
-            </label>
+                        <label>
+                            Medical Condition
+                        </label>
 
-            <select>
+                        <select id="schemeCondition">
 
-              <option>
-                Below ₹1 Lakh
-              </option>
+                            <option value="">
+                                Select condition
+                            </option>
 
-              <option>
-                ₹1–3 Lakh
-              </option>
+                            <option>
+                                General Healthcare
+                            </option>
 
-              <option>
-                ₹3–5 Lakh
-              </option>
+                            <option>
+                                Pregnancy
+                            </option>
 
-              <option>
-                Above ₹5 Lakh
-              </option>
+                            <option>
+                                Chronic Illness
+                            </option>
 
-            </select>
+                            <option>
+                                Senior Citizen Care
+                            </option>
 
-          </div>
+                        </select>
+
+                    </div>
 
 
-          <div class="form-group">
+                    <div class="form-group">
 
-            <label>
-              Location Type
-            </label>
+                        <label>
+                            Annual Income Category
+                        </label>
 
-            <select>
+                        <select>
 
-              <option>
-                Rural Area
-              </option>
+                            <option>
+                                Below ₹1 Lakh
+                            </option>
 
-              <option>
-                Urban Area
-              </option>
+                            <option>
+                                ₹1–3 Lakh
+                            </option>
 
-              <option>
-                Underserved Area
-              </option>
+                            <option>
+                                ₹3–5 Lakh
+                            </option>
 
-            </select>
+                            <option>
+                                Above ₹5 Lakh
+                            </option>
 
-          </div>
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Location Type
+                        </label>
+
+                        <select>
+
+                            <option>
+                                Rural Area
+                            </option>
+
+                            <option>
+                                Urban Area
+                            </option>
+
+                            <option>
+                                Underserved Area
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                </div>
+
+
+                <button class="primary-btn" onclick="checkSchemes()">
+
+                    Check Available Schemes
+
+                </button>
+
+
+            </div>
+
+
+
+            <div class="scheme-results" id="schemeResults"></div>
 
 
         </div>
 
 
-        <button
-          class="primary-btn"
-          onclick="checkSchemes()"
-        >
-
-          Check Available Schemes
-
-        </button>
-
-
-      </div>
-
-
-
-      <div
-        class="scheme-results"
-        id="schemeResults"
-      ></div>
-
-
     </div>
 
 
-  </div>
 
 
+    <!-- CHILD HEALTHCARE MODULE -->
+    <div class="page" id="children">
+        <nav><div class="nav-container">
+            <div class="brand" onclick="showPage('home')"><div class="brand-logo">🏥</div><div><h2>Gramrahi</h2><span>Child Healthcare</span></div></div>
+            <button class="secondary-btn" onclick="goBack()">← Back</button>
+        </div></nav>
+        <div class="page-header">
+            <h1>👶 Child Healthcare Centre</h1>
+            <p>One place for your children's basic health records and care reminders.</p>
+        </div>
+        <div class="content-area">
+            <div class="child-panel">
+                <h2>1. Parent and child profiles</h2>
+                <p class="child-note">Add each child under this browser's local demo profile. Do not use this prototype to store sensitive medical records on a shared device.</p>
+                <form id="childForm" onsubmit="saveChild(event)">
+                    <div class="child-grid">
+                        <div class="form-group"><label for="childName">Child's name *</label><input id="childName" required maxlength="70" placeholder="Enter child's name"></div>
+                        <div class="form-group"><label for="childAgeMonths">Age (months) *</label><input id="childAgeMonths" required type="number" min="0" max="204" placeholder="0–204 months"></div>
+                        <div class="form-group"><label for="childSex">Sex (for growth-chart assessment) *</label><select id="childSex" required><option value="">Select</option><option value="female">Female</option><option value="male">Male</option></select></div>
+                        <div class="form-group"><label for="childWeight">Weight (kg)</label><input id="childWeight" type="number" min="0" max="250" step="0.1" placeholder="e.g. 12.5"></div>
+                        <div class="form-group"><label for="childHeight">Height/length (cm)</label><input id="childHeight" type="number" min="0" max="250" step="0.1" placeholder="e.g. 88"></div>
+                        <div class="form-group"><label for="childAllergies">Allergies</label><input id="childAllergies" maxlength="250" placeholder="Known allergies or None known"></div>
+                        <div class="form-group"><label for="childConditions">Conditions / medicines</label><input id="childConditions" maxlength="250" placeholder="Optional"></div>
+                    </div>
+                    <button class="primary-btn" type="submit">Save Child Profile</button>
+                </form>
+                <div id="childProfiles" class="child-list"></div>
+            </div>
 
-  <!-- =====================================
+            <div class="child-panel">
+                <h2>2. Vaccination tracker</h2>
+                <p class="child-note">Select a child to view a starter checklist. This is not a complete or personalized vaccine schedule: confirm dose names and due dates with your child's vaccination card or ANM/ASHA/health centre.</p>
+                <div class="form-group"><label for="vaccineChild">Choose child</label><select id="vaccineChild" onchange="renderVaccines()"><option value="">Add a child first</option></select></div>
+                <div id="vaccineTracker"></div>
+                <div class="child-actions">
+                    <button class="secondary-btn" onclick="showPage('locator')">📍 Find nearby clinics</button>
+                    <button class="secondary-btn" onclick="remindVaccines()">🔔 Set demo reminder</button>
+                </div>
+                <p class="child-note">SMS/WhatsApp reminders are not sent by this front-end demo. They require a secure backend and a messaging provider.</p>
+            </div>
+
+            <div class="child-panel">
+                <h2>3. Growth and nutrition check</h2>
+                <p class="child-note">Growth interpretation in children requires age- and sex-specific standards and accurate measurements. This prototype saves measurements and prompts appropriate follow-up; it does not diagnose malnutrition.</p>
+                <div class="child-grid">
+                    <div class="form-group"><label for="growthChild">Choose child</label><select id="growthChild" onchange="fillGrowth()"><option value="">Add a child first</option></select></div>
+                    <div class="form-group"><label for="growthWeight">Weight (kg)</label><input id="growthWeight" type="number" min="0" step="0.1"></div>
+                    <div class="form-group"><label for="growthHeight">Height/length (cm)</label><input id="growthHeight" type="number" min="0" step="0.1"></div>
+                </div>
+                <button class="primary-btn" onclick="checkGrowth()">Review measurements</button>
+                <div id="growthResult" aria-live="polite"></div>
+                <div class="child-actions"><button class="secondary-btn" onclick="showPage('locator')">Find health centre / Anganwadi</button></div>
+            </div>
+
+            <div class="child-panel">
+                <h2>4. Child symptom guide</h2>
+                <p class="child-note">This guide is not a diagnosis. If the child seems seriously unwell, do not wait for this checker.</p>
+                <div class="child-grid">
+                    <div class="form-group"><label for="symptomAge">Child's age (months)</label><input id="symptomAge" type="number" min="0" max="204" placeholder="Age in months"></div>
+                    <div class="form-group"><label for="childSymptom">Main symptom</label><select id="childSymptom"><option value="">Choose symptom</option><option>Fever</option><option>Diarrhoea</option><option>Cough or breathing problem</option><option>Rash</option><option>Vomiting</option><option>Other</option></select></div>
+                    <div class="form-group"><label for="dangerSign">Any warning sign?</label><select id="dangerSign"><option value="no">No warning signs noticed</option><option value="breathing">Difficulty breathing / blue lips</option><option value="awake">Hard to wake, unconscious, or seizure</option><option value="drink">Unable to drink/breastfeed or repeated vomiting</option><option value="dehydration">Very little urine, very dry mouth, or extreme weakness</option><option value="rash">Purple/non-blanching rash or rapidly worsening condition</option></select></div>
+                </div>
+                <button class="primary-btn" onclick="checkChildSymptoms()">Get guidance</button>
+                <div id="symptomResult" aria-live="polite"></div>
+            </div>
+
+            <div class="child-panel">
+                <h2>5. Child-specific emergency</h2>
+                <p>Capture the child's age and symptoms, then continue to the existing ambulance page.</p>
+                <div class="child-grid">
+                    <div class="form-group"><label for="emergencyChildAge">Age (months)</label><input id="emergencyChildAge" type="number" min="0" max="204"></div>
+                    <div class="form-group"><label for="emergencyChildSymptoms">Symptoms / details</label><input id="emergencyChildSymptoms" maxlength="500" placeholder="Describe what is happening"></div>
+                </div>
+                <button class="emergency-btn" onclick="startChildEmergency()">🚑 Continue to Emergency Help</button>
+                <p class="child-note">For an immediate emergency in India, call 112 or your local emergency service now. This demo does not dispatch an ambulance automatically.</p>
+            </div>
+
+            <div class="child-panel">
+                <h2>6. Child and maternal scheme finder</h2>
+                <p class="child-note">These are starting points to discuss with an ASHA/ANM, Anganwadi worker or government health centre. Availability and eligibility depend on current official rules and location.</p>
+                <div class="child-list">
+                    <div class="child-record"><h3>Janani Shishu Suraksha Karyakram (JSSK)</h3><p>Ask a public health facility about eligible free services for pregnant women and sick newborns/infants under the programme.</p><button onclick="showPage('schemes')">Open scheme checker →</button></div>
+                    <div class="child-record"><h3>Rashtriya Bal Swasthya Karyakram (RBSK)</h3><p>Ask about child health screening and referral services for eligible children.</p><button onclick="showPage('locator')">Find health centre →</button></div>
+                    <div class="child-record"><h3>Anganwadi / ICDS services</h3><p>Ask your local Anganwadi about nutrition support, growth monitoring and services available in your area.</p><button onclick="showPage('locator')">Find nearby care →</button></div>
+                    <div class="child-record"><h3>Ayushman Bharat / PM-JAY</h3><p>Check current state-specific eligibility and covered services through official channels; this card does not confirm eligibility.</p><button onclick="showPage('schemes')">Open scheme checker →</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================
        AMBULANCE
   ====================================== -->
 
-  <div
-    class="page"
-    id="ambulance"
-  >
+    <div class="page" id="ambulance">
 
 
-    <nav>
+        <nav>
 
-      <div class="nav-container">
+            <div class="nav-container">
 
 
-        <div
-          class="brand"
-          onclick="showPage('home')"
-        >
+                <div class="brand" onclick="showPage('home')">
 
-          <div class="brand-logo">
-            🏥
-          </div>
+                    <div class="brand-logo">
+                        🏥
+                    </div>
 
-          <div>
+                    <div>
 
-            <h2>
-              Gramrahi
-            </h2>
+                        <h2>
+                            Gramrahi
+                        </h2>
 
-            <span>
-              Emergency Assistance
-            </span>
+                        <span>
+                            Emergency Assistance
+                        </span>
 
-          </div>
+                    </div>
+
+                </div>
+
+
+                <button class="secondary-btn" onclick="goBack()">
+
+                    ← Back
+
+                </button>
+
+
+            </div>
+
+        </nav>
+
+
+
+        <div class="page-header">
+
+            <h1>
+                🚑 Emergency Ambulance
+            </h1>
+
+            <p>
+                Request emergency medical assistance quickly.
+            </p>
 
         </div>
 
 
-        <button
-          class="secondary-btn"
-          onclick="goBack()"
-        >
 
-          ← Back
-
-        </button>
+        <div class="content-area">
 
 
-      </div>
-
-    </nav>
+            <div class="ambulance-box">
 
 
+                <div class="ambulance-icon">
 
-    <div class="page-header">
+                    🚑
 
-      <h1>
-        🚑 Emergency Ambulance
-      </h1>
+                </div>
 
-      <p>
-        Request emergency medical assistance quickly.
-      </p>
+
+                <h2>
+                    Need Emergency Assistance?
+                </h2>
+
+
+                <p>
+
+                    Share your location to help emergency services locate you faster.
+
+                </p>
+
+
+                <div class="location-box" id="locationStatus">
+
+                    📍 Current location not yet shared
+
+                </div>
+
+
+                <div class="location-box" id="childEmergencySummary" style="display:none;text-align:left;"></div>
+
+                <button class="secondary-btn" style="margin-bottom:15px;" onclick="getLocation()">
+
+                    📍 Share Current Location
+
+                </button>
+
+
+                <button class="request-ambulance" onclick="requestAmbulance()">
+
+                    🚨 Request Emergency Ambulance
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
 
     </div>
 
 
 
-    <div class="content-area">
-
-
-      <div class="ambulance-box">
-
-
-        <div class="ambulance-icon">
-
-          🚑
-
-        </div>
-
-
-        <h2>
-          Need Emergency Assistance?
-        </h2>
-
-
-        <p>
-
-          Share your location to help emergency services locate you faster.
-
-        </p>
-
-
-        <div
-          class="location-box"
-          id="locationStatus"
-        >
-
-          📍 Current location not yet shared
-
-        </div>
-
-
-        <button
-          class="secondary-btn"
-          style="margin-bottom:15px;"
-          onclick="getLocation()"
-        >
-
-          📍 Share Current Location
-
-        </button>
-
-
-        <button
-          class="request-ambulance"
-          onclick="requestAmbulance()"
-        >
-
-          🚨 Request Emergency Ambulance
-
-        </button>
-
-
-      </div>
-
-
-    </div>
-
-
-  </div>
-
-
-
-  <!-- =====================================
+    <!-- =====================================
        CLINIC LOCATOR
   ====================================== -->
 
-  <div
-    class="page"
-    id="locator"
-  >
+    <div class="page" id="locator">
 
 
-    <nav>
+        <nav>
 
-      <div class="nav-container">
+            <div class="nav-container">
 
 
-        <div
-          class="brand"
-          onclick="showPage('home')"
-        >
+                <div class="brand" onclick="showPage('home')">
 
-          <div class="brand-logo">
-            🏥
-          </div>
+                    <div class="brand-logo">
+                        🏥
+                    </div>
 
-          <div>
+                    <div>
 
-            <h2>
-              Gramrahi
-            </h2>
+                        <h2>
+                            Gramrahi
+                        </h2>
 
-            <span>
-              Find Healthcare Nearby
-            </span>
+                        <span>
+                            Find Healthcare Nearby
+                        </span>
 
-          </div>
+                    </div>
+
+                </div>
+
+
+                <button class="secondary-btn" onclick="goBack()">
+
+                    ← Back
+
+                </button>
+
+
+            </div>
+
+        </nav>
+
+
+
+        <div class="page-header">
+
+            <h1>
+                📍 Nearby Healthcare Facilities
+            </h1>
+
+            <p>
+                Find hospitals, clinics and healthcare centers near you.
+            </p>
 
         </div>
 
 
-        <button
-          class="secondary-btn"
-          onclick="goBack()"
-        >
 
-          ← Back
-
-        </button>
+        <div class="content-area">
 
 
-      </div>
-
-    </nav>
+            <div class="locator-layout">
 
 
+                <div class="map">
 
-    <div class="page-header">
 
-      <h1>
-        📍 Nearby Healthcare Facilities
-      </h1>
+                    <div class="map-title">
 
-      <p>
-        Find hospitals, clinics and healthcare centers near you.
-      </p>
+                        📍 Healthcare Map
+
+                    </div>
+
+
+                    <div class="map-marker marker-one">
+
+                        🏥
+
+                    </div>
+
+
+                    <div class="map-marker marker-two">
+
+                        🏥
+
+                    </div>
+
+
+                    <div class="map-marker marker-three">
+
+                        🏥
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="clinic-list">
+
+
+                    <div class="clinic-card">
+
+                        <h3>
+                            🏥 Community Health Centre
+                        </h3>
+
+                        <p>
+                            General healthcare and emergency support.
+                        </p>
+
+                        <p class="distance">
+                            📍 1.2 km away
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="clinic-card">
+
+                        <h3>
+                            🏥 Primary Health Centre
+                        </h3>
+
+                        <p>
+                            Primary healthcare and consultation.
+                        </p>
+
+                        <p class="distance">
+                            📍 2.8 km away
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="clinic-card">
+
+                        <h3>
+                            🏥 District Government Hospital
+                        </h3>
+
+                        <p>
+                            Emergency and specialist healthcare.
+                        </p>
+
+                        <p class="distance">
+                            📍 5.4 km away
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
 
     </div>
 
 
 
-    <div class="content-area">
-
-
-      <div class="locator-layout">
-
-
-        <div class="map">
-
-
-          <div class="map-title">
-
-            📍 Healthcare Map
-
-          </div>
-
-
-          <div
-            class="map-marker marker-one"
-          >
-
-            🏥
-
-          </div>
-
-
-          <div
-            class="map-marker marker-two"
-          >
-
-            🏥
-
-          </div>
-
-
-          <div
-            class="map-marker marker-three"
-          >
-
-            🏥
-
-          </div>
-
-
-        </div>
-
-
-
-        <div class="clinic-list">
-
-
-          <div class="clinic-card">
-
-            <h3>
-              🏥 Community Health Centre
-            </h3>
-
-            <p>
-              General healthcare and emergency support.
-            </p>
-
-            <p class="distance">
-              📍 1.2 km away
-            </p>
-
-          </div>
-
-
-
-          <div class="clinic-card">
-
-            <h3>
-              🏥 Primary Health Centre
-            </h3>
-
-            <p>
-              Primary healthcare and consultation.
-            </p>
-
-            <p class="distance">
-              📍 2.8 km away
-            </p>
-
-          </div>
-
-
-
-          <div class="clinic-card">
-
-            <h3>
-              🏥 District Government Hospital
-            </h3>
-
-            <p>
-              Emergency and specialist healthcare.
-            </p>
-
-            <p class="distance">
-              📍 5.4 km away
-            </p>
-
-          </div>
-
-
-        </div>
-
-
-      </div>
-
-
-    </div>
-
-
-  </div>
-
-
-
-  <!-- =====================================
+    <!-- =====================================
        CONTACT DIRECTORY
   ====================================== -->
 
-  <div
-    class="page"
-    id="contacts"
-  >
+    <div class="page" id="contacts">
 
 
-    <nav>
+        <nav>
 
-      <div class="nav-container">
+            <div class="nav-container">
 
 
-        <div
-          class="brand"
-          onclick="showPage('home')"
-        >
+                <div class="brand" onclick="showPage('home')">
 
-          <div class="brand-logo">
-            🏥
-          </div>
+                    <div class="brand-logo">
+                        🏥
+                    </div>
 
-          <div>
+                    <div>
 
-            <h2>
-              Gramrahi
-            </h2>
+                        <h2>
+                            Gramrahi
+                        </h2>
 
-            <span>
-              Healthcare Contact Directory
-            </span>
+                        <span>
+                            Healthcare Contact Directory
+                        </span>
 
-          </div>
+                    </div>
+
+                </div>
+
+
+                <button class="secondary-btn" onclick="goBack()">
+
+                    ← Back
+
+                </button>
+
+
+            </div>
+
+        </nav>
+
+
+
+        <div class="page-header">
+
+            <h1>
+                Important Healthcare Contacts
+            </h1>
+
+            <p>
+                Quick access to emergency and healthcare support.
+            </p>
 
         </div>
 
 
-        <button
-          class="secondary-btn"
-          onclick="goBack()"
-        >
 
-          ← Back
-
-        </button>
+        <div class="content-area">
 
 
-      </div>
-
-    </nav>
+            <div class="contact-grid">
 
 
+                <div class="contact-card">
 
-    <div class="page-header">
+                    <div class="contact-icon">
+                        🚨
+                    </div>
 
-      <h1>
-        Important Healthcare Contacts
-      </h1>
+                    <h3>
+                        Emergency Response
+                    </h3>
 
-      <p>
-        Quick access to emergency and healthcare support.
-      </p>
+                    <div class="contact-number">
+                        112
+                    </div>
+
+                    <p>
+                        National emergency assistance.
+                    </p>
+
+                    <button class="primary-btn" onclick="callNumber('112')">
+
+                        Call Now
+
+                    </button>
+
+                </div>
+
+
+
+                <div class="contact-card">
+
+                    <div class="contact-icon">
+                        🚑
+                    </div>
+
+                    <h3>
+                        Ambulance Service
+                    </h3>
+
+                    <div class="contact-number">
+                        108
+                    </div>
+
+                    <p>
+                        Emergency ambulance support.
+                    </p>
+
+                    <button class="primary-btn" onclick="callNumber('108')">
+
+                        Call Now
+
+                    </button>
+
+                </div>
+
+
+
+                <div class="contact-card">
+
+                    <div class="contact-icon">
+                        🏥
+                    </div>
+
+                    <h3>
+                        Healthcare Helpline
+                    </h3>
+
+                    <div class="contact-number">
+                        104
+                    </div>
+
+                    <p>
+                        Healthcare information and support.
+                    </p>
+
+                    <button class="primary-btn" onclick="callNumber('104')">
+
+                        Call Now
+
+                    </button>
+
+                </div>
+
+
+
+                <div class="contact-card">
+
+                    <div class="contact-icon">
+                        🤖
+                    </div>
+
+                    <h3>
+                        AI Healthcare Guide
+                    </h3>
+
+                    <div class="contact-number">
+                        AI Guide
+                    </div>
+
+                    <p>
+                        Get help navigating Gramrahi.
+                    </p>
+
+                    <button class="primary-btn" onclick="showPage('guide')">
+
+                        Open AI Guide
+
+                    </button>
+
+                </div>
+
+
+
+                <div class="contact-card">
+
+                    <div class="contact-icon">
+                        📍
+                    </div>
+
+                    <h3>
+                        Nearby Clinic
+                    </h3>
+
+                    <div class="contact-number">
+                        Find Care
+                    </div>
+
+                    <p>
+                        Locate healthcare facilities near you.
+                    </p>
+
+                    <button class="primary-btn" onclick="showPage('locator')">
+
+                        Find Clinic
+
+                    </button>
+
+                </div>
+
+
+
+                <div class="contact-card">
+
+                    <div class="contact-icon">
+                        👤
+                    </div>
+
+                    <h3>
+                        Patient Profile
+                    </h3>
+
+                    <div class="contact-number">
+                        Profile
+                    </div>
+
+                    <p>
+                        View and manage your healthcare profile.
+                    </p>
+
+                    <button class="primary-btn" onclick="showPage('profile')">
+
+                        Open Profile
+
+                    </button>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
 
     </div>
 
 
 
-    <div class="content-area">
-
-
-      <div class="contact-grid">
-
-
-        <div class="contact-card">
-
-          <div class="contact-icon">
-            🚨
-          </div>
-
-          <h3>
-            Emergency Response
-          </h3>
-
-          <div class="contact-number">
-            112
-          </div>
-
-          <p>
-            National emergency assistance.
-          </p>
-
-          <button
-            class="primary-btn"
-            onclick="callNumber('112')"
-          >
-
-            Call Now
-
-          </button>
-
-        </div>
-
-
-
-        <div class="contact-card">
-
-          <div class="contact-icon">
-            🚑
-          </div>
-
-          <h3>
-            Ambulance Service
-          </h3>
-
-          <div class="contact-number">
-            108
-          </div>
-
-          <p>
-            Emergency ambulance support.
-          </p>
-
-          <button
-            class="primary-btn"
-            onclick="callNumber('108')"
-          >
-
-            Call Now
-
-          </button>
-
-        </div>
-
-
-
-        <div class="contact-card">
-
-          <div class="contact-icon">
-            🏥
-          </div>
-
-          <h3>
-            Healthcare Helpline
-          </h3>
-
-          <div class="contact-number">
-            104
-          </div>
-
-          <p>
-            Healthcare information and support.
-          </p>
-
-          <button
-            class="primary-btn"
-            onclick="callNumber('104')"
-          >
-
-            Call Now
-
-          </button>
-
-        </div>
-
-
-
-        <div class="contact-card">
-
-          <div class="contact-icon">
-            🤖
-          </div>
-
-          <h3>
-            AI Healthcare Guide
-          </h3>
-
-          <div class="contact-number">
-            AI Guide
-          </div>
-
-          <p>
-            Get help navigating Gramrahi.
-          </p>
-
-          <button
-            class="primary-btn"
-            onclick="showPage('guide')"
-          >
-
-            Open AI Guide
-
-          </button>
-
-        </div>
-
-
-
-        <div class="contact-card">
-
-          <div class="contact-icon">
-            📍
-          </div>
-
-          <h3>
-            Nearby Clinic
-          </h3>
-
-          <div class="contact-number">
-            Find Care
-          </div>
-
-          <p>
-            Locate healthcare facilities near you.
-          </p>
-
-          <button
-            class="primary-btn"
-            onclick="showPage('locator')"
-          >
-
-            Find Clinic
-
-          </button>
-
-        </div>
-
-
-
-        <div class="contact-card">
-
-          <div class="contact-icon">
-            👤
-          </div>
-
-          <h3>
-            Patient Profile
-          </h3>
-
-          <div class="contact-number">
-            Profile
-          </div>
-
-          <p>
-            View and manage your healthcare profile.
-          </p>
-
-          <button
-            class="primary-btn"
-            onclick="showPage('profile')"
-          >
-
-            Open Profile
-
-          </button>
-
-        </div>
-
-
-      </div>
-
-
-    </div>
-
-
-  </div>
-
-
-
-  <!-- =====================================
+    <!-- =====================================
        JAVASCRIPT
   ====================================== -->
 
-  <script>
+    <script>
 
 
-    /* ================================
-       PAGE NAVIGATION
-    ================================= */
+        /* ================================
+           PAGE NAVIGATION
+        ================================= */
 
-    let previousPage = "home";
+        let previousPage = "home";
 
 
-    function showPage(pageId) {
+        function showPage(pageId) {
 
 
-      const activePage =
-        document.querySelector(".page.active");
+            const activePage =
+                document.querySelector(".page.active");
 
 
-      if (
-        activePage &&
-        activePage.id !== pageId
-      ) {
+            if (
+                activePage &&
+                activePage.id !== pageId
+            ) {
 
-        previousPage =
-          activePage.id;
+                previousPage =
+                    activePage.id;
 
-      }
+            }
 
 
-      document
-        .querySelectorAll(".page")
-        .forEach(page => {
+            document
+                .querySelectorAll(".page")
+                .forEach(page => {
 
-          page.classList.remove("active");
+                    page.classList.remove("active");
 
-        });
+                });
 
 
-      document
-        .getElementById(pageId)
-        .classList.add("active");
+            document
+                .getElementById(pageId)
+                .classList.add("active");
 
 
-      if (
-        pageId === "profile"
-      ) {
+            if (
+                pageId === "profile"
+            ) {
 
-        loadPatientProfile();
+                loadPatientProfile();
 
-      }
+            }
 
 
-      window.scrollTo({
+            window.scrollTo({
 
-        top: 0,
+                top: 0,
 
-        behavior: "smooth"
+                behavior: "smooth"
 
-      });
+            });
 
 
-    }
+        }
 
 
-    function goBack() {
+        function goBack() {
 
-      showPage(previousPage);
+            showPage(previousPage);
 
-    }
+        }
 
 
-    /* ================================
-       TOAST
-    ================================= */
+        /* ================================
+           TOAST
+        ================================= */
 
-    function showToast(message) {
+        function showToast(message) {
 
 
-      const toast =
-        document.getElementById("toast");
+            const toast =
+                document.getElementById("toast");
 
 
-      toast.innerText =
-        message;
+            toast.innerText =
+                message;
 
 
-      toast.classList.add("show");
+            toast.classList.add("show");
 
 
-      setTimeout(() => {
+            setTimeout(() => {
 
-        toast.classList.remove("show");
+                toast.classList.remove("show");
 
-      }, 3500);
+            }, 3500);
 
 
-    }
+        }
 
 
-    /* ================================
-       MULTI STEP LOGIN
-    ================================= */
+        /* ================================
+           MULTI STEP LOGIN
+        ================================= */
 
-    function showStep(stepNumber) {
+        function showStep(stepNumber) {
 
 
-      document
-        .querySelectorAll(".form-step")
-        .forEach(step => {
+            document
+                .querySelectorAll(".form-step")
+                .forEach(step => {
 
-          step.classList.remove(
-            "active-step"
-          );
+                    step.classList.remove(
+                        "active-step"
+                    );
 
-        });
+                });
 
 
-      document
-        .getElementById(
-          "step" + stepNumber
-        )
-        .classList.add(
-          "active-step"
-        );
+            document
+                .getElementById(
+                    "step" + stepNumber
+                )
+                .classList.add(
+                    "active-step"
+                );
 
 
-      document
-        .querySelectorAll(".step-dot")
-        .forEach((dot, index) => {
+            document
+                .querySelectorAll(".step-dot")
+                .forEach((dot, index) => {
 
 
-          dot.classList.remove(
-            "active"
-          );
+                    dot.classList.remove(
+                        "active"
+                    );
 
 
-          dot.classList.remove(
-            "completed"
-          );
+                    dot.classList.remove(
+                        "completed"
+                    );
 
 
-          if (
-            index + 1 < stepNumber
-          ) {
+                    if (
+                        index + 1 < stepNumber
+                    ) {
 
-            dot.classList.add(
-              "completed"
+                        dot.classList.add(
+                            "completed"
+                        );
+
+                    }
+
+
+                    else if (
+                        index + 1 === stepNumber
+                    ) {
+
+                        dot.classList.add(
+                            "active"
+                        );
+
+                    }
+
+
+                });
+
+
+        }
+
+
+        /* ================================
+           SEND OTP
+        ================================= */
+
+        function sendOTP() {
+
+
+            const number =
+                document
+                    .getElementById("mobileNumber")
+                    .value
+                    .trim();
+
+
+            if (
+                !/^[0-9]{10}$/.test(number)
+            ) {
+
+                showToast(
+                    "Please enter a valid 10 digit mobile number."
+                );
+
+                return;
+
+            }
+
+
+            localStorage.setItem(
+                "patientPhone",
+                number
             );
 
-          }
 
-
-          else if (
-            index + 1 === stepNumber
-          ) {
-
-            dot.classList.add(
-              "active"
+            showToast(
+                "OTP sent successfully! Use 123456 for testing."
             );
 
-          }
 
+            setTimeout(() => {
 
-        });
+                showStep(2);
 
+            }, 600);
 
-    }
 
+        }
 
-    /* ================================
-       SEND OTP
-    ================================= */
 
-    function sendOTP() {
+        /* ================================
+           VERIFY OTP
+        ================================= */
 
+        function verifyOTP() {
 
-      const number =
-        document
-          .getElementById("mobileNumber")
-          .value
-          .trim();
 
+            const otp =
+                document
+                    .getElementById("otpInput")
+                    .value
+                    .trim();
 
-      if (
-        !/^[0-9]{10}$/.test(number)
-      ) {
 
-        showToast(
-          "Please enter a valid 10 digit mobile number."
-        );
+            if (
+                otp === "123456"
+            ) {
 
-        return;
+                showToast(
+                    "OTP verified successfully!"
+                );
 
-      }
 
+                setTimeout(() => {
 
-      localStorage.setItem(
-        "patientPhone",
-        number
-      );
+                    showStep(3);
 
+                }, 500);
 
-      showToast(
-        "OTP sent successfully! Use 123456 for testing."
-      );
+            }
 
 
-      setTimeout(() => {
+            else {
 
-        showStep(2);
+                showToast(
+                    "Invalid OTP. Please enter 123456."
+                );
 
-      }, 600);
+            }
 
 
-    }
+        }
 
 
-    /* ================================
-       VERIFY OTP
-    ================================= */
+        /* ================================
+           COMPLETE PROFILE
+        ================================= */
 
-    function verifyOTP() {
+        function completeProfile() {
 
 
-      const otp =
-        document
-          .getElementById("otpInput")
-          .value
-          .trim();
+            const name =
+                document
+                    .getElementById("patientName")
+                    .value
+                    .trim();
 
 
-      if (
-        otp === "123456"
-      ) {
+            const age =
+                document
+                    .getElementById("patientAge")
+                    .value;
 
-        showToast(
-          "OTP verified successfully!"
-        );
 
+            const gender =
+                document
+                    .getElementById("patientGender")
+                    .value;
 
-        setTimeout(() => {
 
-          showStep(3);
+            const blood =
+                document
+                    .getElementById("bloodGroup")
+                    .value;
 
-        }, 500);
 
-      }
+            const condition =
+                document
+                    .getElementById("medicalCondition")
+                    .value;
 
 
-      else {
+            const allergies =
+                document
+                    .getElementById("allergies")
+                    .value
+                    .trim();
 
-        showToast(
-          "Invalid OTP. Please enter 123456."
-        );
 
-      }
+            const emergency =
+                document
+                    .getElementById("emergencyContact")
+                    .value
+                    .trim();
 
 
-    }
+            if (
+                name === "" ||
+                age === "" ||
+                gender === "" ||
+                blood === ""
+            ) {
 
+                showToast(
+                    "Please complete all required profile information."
+                );
 
-    /* ================================
-       COMPLETE PROFILE
-    ================================= */
+                return;
 
-    function completeProfile() {
+            }
 
 
-      const name =
-        document
-          .getElementById("patientName")
-          .value
-          .trim();
+            localStorage.setItem(
+                "patientName",
+                name
+            );
 
 
-      const age =
-        document
-          .getElementById("patientAge")
-          .value;
+            localStorage.setItem(
+                "patientAge",
+                age
+            );
 
 
-      const gender =
-        document
-          .getElementById("patientGender")
-          .value;
+            localStorage.setItem(
+                "patientGender",
+                gender
+            );
 
 
-      const blood =
-        document
-          .getElementById("bloodGroup")
-          .value;
+            localStorage.setItem(
+                "bloodGroup",
+                blood
+            );
 
 
-      const condition =
-        document
-          .getElementById("medicalCondition")
-          .value;
+            localStorage.setItem(
+                "medicalCondition",
+                condition || "Not Added"
+            );
 
 
-      const allergies =
-        document
-          .getElementById("allergies")
-          .value
-          .trim();
+            localStorage.setItem(
+                "allergies",
+                allergies || "None Added"
+            );
 
 
-      const emergency =
-        document
-          .getElementById("emergencyContact")
-          .value
-          .trim();
+            localStorage.setItem(
+                "emergencyContact",
+                emergency || "Not Added"
+            );
 
 
-      if (
-        name === "" ||
-        age === "" ||
-        gender === "" ||
-        blood === ""
-      ) {
+            showToast(
+                "Profile completed successfully!"
+            );
 
-        showToast(
-          "Please complete all required profile information."
-        );
 
-        return;
+            setTimeout(() => {
 
-      }
+                showPage("profile");
 
+            }, 700);
 
-      localStorage.setItem(
-        "patientName",
-        name
-      );
 
+        }
 
-      localStorage.setItem(
-        "patientAge",
-        age
-      );
 
+        /* ================================
+           LOAD PATIENT PROFILE
+        ================================= */
 
-      localStorage.setItem(
-        "patientGender",
-        gender
-      );
+        function loadPatientProfile() {
 
 
-      localStorage.setItem(
-        "bloodGroup",
-        blood
-      );
+            const name =
+                localStorage.getItem(
+                    "patientName"
+                );
 
 
-      localStorage.setItem(
-        "medicalCondition",
-        condition || "Not Added"
-      );
+            const age =
+                localStorage.getItem(
+                    "patientAge"
+                );
 
 
-      localStorage.setItem(
-        "allergies",
-        allergies || "None Added"
-      );
+            const gender =
+                localStorage.getItem(
+                    "patientGender"
+                );
 
 
-      localStorage.setItem(
-        "emergencyContact",
-        emergency || "Not Added"
-      );
+            const blood =
+                localStorage.getItem(
+                    "bloodGroup"
+                );
 
 
-      showToast(
-        "Profile completed successfully!"
-      );
+            const condition =
+                localStorage.getItem(
+                    "medicalCondition"
+                );
 
 
-      setTimeout(() => {
+            const allergies =
+                localStorage.getItem(
+                    "allergies"
+                );
 
-        showPage("profile");
 
-      }, 700);
+            const emergency =
+                localStorage.getItem(
+                    "emergencyContact"
+                );
 
 
-    }
+            const phone =
+                localStorage.getItem(
+                    "patientPhone"
+                );
 
 
-    /* ================================
-       LOAD PATIENT PROFILE
-    ================================= */
+            document
+                .getElementById("profileName")
+                .innerText =
+                name || "Citizen";
 
-    function loadPatientProfile() {
 
+            document
+                .getElementById("profileAge")
+                .innerText =
+                age || "Not Added";
 
-      const name =
-        localStorage.getItem(
-          "patientName"
-        );
 
+            document
+                .getElementById("profileGender")
+                .innerText =
+                gender || "Not Added";
 
-      const age =
-        localStorage.getItem(
-          "patientAge"
-        );
 
+            document
+                .getElementById("profileBlood")
+                .innerText =
+                blood || "Not Added";
 
-      const gender =
-        localStorage.getItem(
-          "patientGender"
-        );
 
+            document
+                .getElementById("profileCondition")
+                .innerText =
+                condition || "Not Added";
 
-      const blood =
-        localStorage.getItem(
-          "bloodGroup"
-        );
 
+            document
+                .getElementById("profileAllergies")
+                .innerText =
+                allergies || "Not Added";
 
-      const condition =
-        localStorage.getItem(
-          "medicalCondition"
-        );
 
+            document
+                .getElementById("profileEmergency")
+                .innerText =
+                emergency || "Not Added";
 
-      const allergies =
-        localStorage.getItem(
-          "allergies"
-        );
 
+            document
+                .getElementById("profilePhone")
+                .innerText =
+                phone
+                    ? "📱 +91 " + phone
+                    : "📱 Not Added";
 
-      const emergency =
-        localStorage.getItem(
-          "emergencyContact"
-        );
 
+        }
 
-      const phone =
-        localStorage.getItem(
-          "patientPhone"
-        );
 
+        /* ================================
+           AI CHAT
+        ================================= */
 
-      document
-        .getElementById("profileName")
-        .innerText =
-        name || "Citizen";
+        function handleEnter(event) {
 
+            if (
+                event.key === "Enter"
+            ) {
 
-      document
-        .getElementById("profileAge")
-        .innerText =
-        age || "Not Added";
+                sendMessage();
 
+            }
 
-      document
-        .getElementById("profileGender")
-        .innerText =
-        gender || "Not Added";
+        }
 
 
-      document
-        .getElementById("profileBlood")
-        .innerText =
-        blood || "Not Added";
+        function quickQuestion(question) {
 
+            document
+                .getElementById("chatInput")
+                .value =
+                question;
 
-      document
-        .getElementById("profileCondition")
-        .innerText =
-        condition || "Not Added";
 
+            sendMessage();
 
-      document
-        .getElementById("profileAllergies")
-        .innerText =
-        allergies || "Not Added";
+        }
 
 
-      document
-        .getElementById("profileEmergency")
-        .innerText =
-        emergency || "Not Added";
+        function sendMessage() {
 
 
-      document
-        .getElementById("profilePhone")
-        .innerText =
-        phone
-          ? "📱 +91 " + phone
-          : "📱 Not Added";
+            const input =
+                document.getElementById(
+                    "chatInput"
+                );
 
 
-    }
+            const message =
+                input.value.trim();
 
 
-    /* ================================
-       AI CHAT
-    ================================= */
+            if (
+                !message
+            ) return;
 
-    function handleEnter(event) {
 
-      if (
-        event.key === "Enter"
-      ) {
+            const messages =
+                document.getElementById(
+                    "messages"
+                );
 
-        sendMessage();
 
-      }
-
-    }
-
-
-    function quickQuestion(question) {
-
-      document
-        .getElementById("chatInput")
-        .value =
-        question;
-
-
-      sendMessage();
-
-    }
-
-
-    function sendMessage() {
-
-
-      const input =
-        document.getElementById(
-          "chatInput"
-        );
-
-
-      const message =
-        input.value.trim();
-
-
-      if (
-        !message
-      ) return;
-
-
-      const messages =
-        document.getElementById(
-          "messages"
-        );
-
-
-      messages.innerHTML += `
+            messages.innerHTML += `
 
         <div class="message user-message">
 
@@ -5071,23 +4929,23 @@
       `;
 
 
-      input.value = "";
+            input.value = "";
 
 
-      messages.scrollTop =
-        messages.scrollHeight;
+            messages.scrollTop =
+                messages.scrollHeight;
 
 
-      setTimeout(() => {
+            setTimeout(() => {
 
 
-        const response =
-          getAIResponse(
-            message.toLowerCase()
-          );
+                const response =
+                    getAIResponse(
+                        message.toLowerCase()
+                    );
 
 
-        messages.innerHTML += `
+                messages.innerHTML += `
 
           <div class="message bot-message">
 
@@ -5098,30 +4956,30 @@
         `;
 
 
-        messages.scrollTop =
-          messages.scrollHeight;
+                messages.scrollTop =
+                    messages.scrollHeight;
 
 
-      }, 600);
+            }, 600);
 
 
-    }
+        }
 
 
-    function getAIResponse(message) {
+        function getAIResponse(message) {
 
 
-      if (
+            if (
 
-        message.includes("clinic") ||
+                message.includes("clinic") ||
 
-        message.includes("hospital") ||
+                message.includes("hospital") ||
 
-        message.includes("nearby")
+                message.includes("nearby")
 
-      ) {
+            ) {
 
-        return `
+                return `
           📍 I can help you find healthcare facilities near your location.
 
           <br><br>
@@ -5136,18 +4994,18 @@
           </button>
         `;
 
-      }
+            }
 
 
-      if (
+            if (
 
-        message.includes("scheme") ||
+                message.includes("scheme") ||
 
-        message.includes("eligibility")
+                message.includes("eligibility")
 
-      ) {
+            ) {
 
-        return `
+                return `
           📋 You can check available healthcare schemes
           using our Scheme Eligibility Checker.
 
@@ -5163,18 +5021,18 @@
           </button>
         `;
 
-      }
+            }
 
 
-      if (
+            if (
 
-        message.includes("ambulance") ||
+                message.includes("ambulance") ||
 
-        message.includes("emergency")
+                message.includes("emergency")
 
-      ) {
+            ) {
 
-        return `
+                return `
           🚨 If you need emergency assistance,
           please use the Emergency Ambulance service.
 
@@ -5190,16 +5048,16 @@
           </button>
         `;
 
-      }
+            }
 
 
-      if (
+            if (
 
-        message.includes("profile")
+                message.includes("profile")
 
-      ) {
+            ) {
 
-        return `
+                return `
           👤 Your Patient Profile stores your basic
           healthcare information.
 
@@ -5215,10 +5073,10 @@
           </button>
         `;
 
-      }
+            }
 
 
-      return `
+            return `
         Namaste! 😊
 
         <br><br>
@@ -5247,50 +5105,50 @@
       `;
 
 
-    }
+        }
 
 
-    /* ================================
-       SCHEME CHECKER
-    ================================= */
+        /* ================================
+           SCHEME CHECKER
+        ================================= */
 
-    function checkSchemes() {
-
-
-      const age =
-        parseInt(
-
-          document
-            .getElementById("schemeAge")
-            .value
-
-        );
+        function checkSchemes() {
 
 
-      const condition =
-        document
-          .getElementById("schemeCondition")
-          .value;
+            const age =
+                parseInt(
+
+                    document
+                        .getElementById("schemeAge")
+                        .value
+
+                );
 
 
-      if (
-
-        !age ||
-
-        !condition
-
-      ) {
-
-        showToast(
-          "Please enter your age and select a medical condition."
-        );
-
-        return;
-
-      }
+            const condition =
+                document
+                    .getElementById("schemeCondition")
+                    .value;
 
 
-      let results = `
+            if (
+
+                !age ||
+
+                !condition
+
+            ) {
+
+                showToast(
+                    "Please enter your age and select a medical condition."
+                );
+
+                return;
+
+            }
+
+
+            let results = `
 
         <h2>
           Matching Healthcare Support
@@ -5332,13 +5190,13 @@
       `;
 
 
-      if (
+            if (
 
-        condition === "Pregnancy"
+                condition === "Pregnancy"
 
-      ) {
+            ) {
 
-        results += `
+                results += `
 
           <div class="scheme-card">
 
@@ -5363,16 +5221,16 @@
 
         `;
 
-      }
+            }
 
 
-      if (
+            if (
 
-        age >= 60
+                age >= 60
 
-      ) {
+            ) {
 
-        results += `
+                results += `
 
           <div class="scheme-card">
 
@@ -5397,53 +5255,53 @@
 
         `;
 
-      }
+            }
 
 
-      document
-        .getElementById(
-          "schemeResults"
-        )
-        .innerHTML =
-        results;
+            document
+                .getElementById(
+                    "schemeResults"
+                )
+                .innerHTML =
+                results;
 
 
-    }
+        }
 
 
-    /* ================================
-       LOCATION
-    ================================= */
+        /* ================================
+           LOCATION
+        ================================= */
 
-    function getLocation() {
-
-
-      const status =
-        document.getElementById(
-          "locationStatus"
-        );
+        function getLocation() {
 
 
-      if (
-
-        navigator.geolocation
-
-      ) {
-
-
-        status.innerHTML =
-          "📡 Detecting your current location...";
+            const status =
+                document.getElementById(
+                    "locationStatus"
+                );
 
 
-        navigator
-          .geolocation
-          .getCurrentPosition(
+            if (
+
+                navigator.geolocation
+
+            ) {
 
 
-            function(position) {
+                status.innerHTML =
+                    "📡 Detecting your current location...";
 
 
-              status.innerHTML = `
+                navigator
+                    .geolocation
+                    .getCurrentPosition(
+
+
+                        function (position) {
+
+
+                            status.innerHTML = `
 
                 📍 Location shared successfully
 
@@ -5460,88 +5318,268 @@
               `;
 
 
-            },
+                        },
 
 
-            function() {
+                        function () {
 
 
-              status.innerHTML =
+                            status.innerHTML =
 
-                "⚠️ Unable to access location. Please enable location permission.";
+                                "⚠️ Unable to access location. Please enable location permission.";
+
+
+                        }
+
+
+                    );
 
 
             }
 
 
-          );
+            else {
 
 
-      }
+                status.innerHTML =
+
+                    "⚠️ Location services are not supported by this browser.";
 
 
-      else {
+            }
 
 
-        status.innerHTML =
-
-          "⚠️ Location services are not supported by this browser.";
+        }
 
 
-      }
+        /* ================================
+           AMBULANCE
+        ================================= */
+
+        function requestAmbulance() {
 
 
-    }
+            const confirmed =
+                confirm(
+
+                    "Are you sure you want to request emergency ambulance assistance?"
+
+                );
 
 
-    /* ================================
-       AMBULANCE
-    ================================= */
+            if (
 
-    function requestAmbulance() {
+                confirmed
 
+            ) {
 
-      const confirmed =
-        confirm(
+                showToast(
 
-          "Are you sure you want to request emergency ambulance assistance?"
+                    "Emergency request submitted. Please keep your phone available."
 
-        );
+                );
 
-
-      if (
-
-        confirmed
-
-      ) {
-
-        showToast(
-
-          "Emergency request submitted. Please keep your phone available."
-
-        );
-
-      }
+            }
 
 
-    }
+        }
 
 
-    /* ================================
-       CALL NUMBER
-    ================================= */
+        /* ================================
+           CALL NUMBER
+        ================================= */
 
-    function callNumber(number) {
-
-
-      window.location.href =
-        "tel:" + number;
+        function callNumber(number) {
 
 
-    }
+            window.location.href =
+                "tel:" + number;
 
 
-  </script>
+        }
+
+
+
+        /* CHILD HEALTHCARE DEMO: local browser storage only */
+        const CHILD_STORE_KEY = "gramrahiChildProfiles_v1";
+        const VACCINE_CHECKLIST = [
+            {id:"birth", label:"Birth-dose records (verify against vaccination card)"},
+            {id:"6w", label:"Around 6 weeks — verify due doses with health worker"},
+            {id:"10w", label:"Around 10 weeks — verify due doses with health worker"},
+            {id:"14w", label:"Around 14 weeks — verify due doses with health worker"},
+            {id:"9m", label:"Around 9 months — verify due doses with health worker"},
+            {id:"16m", label:"Later infant / toddler doses — confirm exact timing locally"},
+            {id:"school", label:"School-age / adolescent doses — confirm current national/state schedule"}
+        ];
+
+        function getChildren() {
+            try { return JSON.parse(localStorage.getItem(CHILD_STORE_KEY) || "[]"); }
+            catch (_) { return []; }
+        }
+        function putChildren(children) {
+            localStorage.setItem(CHILD_STORE_KEY, JSON.stringify(children));
+        }
+        function escapeChildText(value) {
+            return String(value ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+        }
+        function saveChild(event) {
+            event.preventDefault();
+            const child = {
+                id: (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : String(Date.now()),
+                name: document.getElementById("childName").value.trim(),
+                ageMonths: Number(document.getElementById("childAgeMonths").value),
+                sex: document.getElementById("childSex").value,
+                weight: document.getElementById("childWeight").value,
+                height: document.getElementById("childHeight").value,
+                allergies: document.getElementById("childAllergies").value.trim(),
+                conditions: document.getElementById("childConditions").value.trim(),
+                vaccines: {}
+            };
+            if (!child.name || !Number.isFinite(child.ageMonths) || child.ageMonths < 0 || child.ageMonths > 204) {
+                showToast("Enter the child's name and a valid age (0–204 months)."); return;
+            }
+            const children = getChildren();
+            children.push(child);
+            try { putChildren(children); }
+            catch (_) { showToast("Could not save in this browser. Check storage settings."); return; }
+            document.getElementById("childForm").reset();
+            renderChildren();
+            showToast("Child profile saved on this device.");
+        }
+        function renderChildren() {
+            const children = getChildren();
+            const list = document.getElementById("childProfiles");
+            const options = children.map(c => `<option value="${escapeChildText(c.id)}">${escapeChildText(c.name)} (${c.ageMonths} months)</option>`).join("");
+            ["vaccineChild","growthChild"].forEach(id => {
+                const el = document.getElementById(id), old = el.value;
+                el.innerHTML = `<option value="">Choose child</option>${options}`;
+                if (children.some(c => c.id === old)) el.value = old;
+            });
+            list.innerHTML = children.length ? children.map(c => `
+                <div class="child-record"><h3>👶 ${escapeChildText(c.name)}</h3>
+                <p>Age: ${c.ageMonths} months · Sex: ${c.sex === "female" ? "Female" : "Male"}</p>
+                <p>Weight: ${c.weight ? escapeChildText(c.weight)+" kg" : "Not added"} · Height: ${c.height ? escapeChildText(c.height)+" cm" : "Not added"}</p>
+                <p>Allergies: ${escapeChildText(c.allergies || "Not added")}</p><p>Conditions: ${escapeChildText(c.conditions || "Not added")}</p>
+                <button onclick="removeChild('${escapeChildText(c.id)}')">Remove profile</button></div>`).join("") : `<p class="child-note">No child profiles yet. Add your first child above.</p>`;
+            renderVaccines();
+        }
+        function removeChild(id) {
+            if (!confirm("Remove this child profile and its demo vaccination checklist from this browser?")) return;
+            putChildren(getChildren().filter(c => c.id !== id));
+            renderChildren();
+        }
+        function renderVaccines() {
+            const id = document.getElementById("vaccineChild").value;
+            const child = getChildren().find(c => c.id === id);
+            const target = document.getElementById("vaccineTracker");
+            if (!child) { target.innerHTML = `<p class="child-note">Choose a saved child to view the checklist.</p>`; return; }
+            target.innerHTML = `<h3>${escapeChildText(child.name)}'s checklist</h3><table class="child-table"><thead><tr><th>Checkpoint</th><th>Record</th></tr></thead><tbody>` +
+                VACCINE_CHECKLIST.map(v => `<tr><td>${escapeChildText(v.label)}</td><td><label><input type="checkbox" ${child.vaccines[v.id] ? "checked" : ""} onchange="markVaccine('${child.id}','${v.id}',this.checked)"> Dose record checked</label></td></tr>`).join("") +
+                `</tbody></table><p class="child-note">Checkboxes only record what you mark; they do not mean the dose is medically due or completed. Use the child's official vaccination card.</p>`;
+        }
+        function markVaccine(childId, vaccineId, checked) {
+            const children = getChildren(), child = children.find(c => c.id === childId);
+            if (!child) return;
+            child.vaccines = child.vaccines || {};
+            child.vaccines[vaccineId] = checked;
+            putChildren(children);
+        }
+        function remindVaccines() {
+            const child = getChildren().find(c => c.id === document.getElementById("vaccineChild").value);
+            if (!child) { showToast("Choose a child first."); return; }
+            showToast("Demo only: reminders are not sent. Ask your health worker about the next due dose.");
+        }
+        function fillGrowth() {
+            const child = getChildren().find(c => c.id === document.getElementById("growthChild").value);
+            document.getElementById("growthWeight").value = child?.weight || "";
+            document.getElementById("growthHeight").value = child?.height || "";
+            document.getElementById("growthResult").innerHTML = "";
+        }
+        function checkGrowth() {
+            const child = getChildren().find(c => c.id === document.getElementById("growthChild").value);
+            const w = Number(document.getElementById("growthWeight").value), h = Number(document.getElementById("growthHeight").value);
+            const result = document.getElementById("growthResult");
+            if (!child || !(w > 0) || !(h > 0)) { showToast("Choose a child and enter valid height and weight."); return; }
+            child.weight = String(w); child.height = String(h);
+            const children = getChildren(); putChildren(children);
+            renderChildren();
+            result.innerHTML = `<div class="child-status yellow"><strong>Measurements recorded — clinical interpretation needed.</strong><br>Age: ${child.ageMonths} months; weight: ${w} kg; height/length: ${h} cm. This demo does not calculate a nutrition category. Ask an Anganwadi worker or health professional to plot these measurements on the appropriate age- and sex-specific growth chart, especially if weight is falling, feeding is difficult, or you are concerned.</div>`;
+        }
+        function checkChildSymptoms() {
+            const age = Number(document.getElementById("symptomAge").value);
+            const symptom = document.getElementById("childSymptom").value;
+            const danger = document.getElementById("dangerSign").value;
+            const out = document.getElementById("symptomResult");
+            if (!Number.isFinite(age) || age < 0 || age > 204 || !symptom) { showToast("Enter age and select the main symptom."); return; }
+            if (danger !== "no" || (symptom === "Fever" && age < 3)) {
+                out.innerHTML = `<div class="child-status red"><strong>Seek urgent medical care now.</strong><br>Warning signs can indicate a serious illness. For a baby younger than 3 months with fever, seek urgent medical assessment. If the child has difficulty breathing, is hard to wake, has a seizure, cannot drink, or is rapidly worsening, use emergency services. Do not delay care to use this website.</div>`;
+            } else {
+                out.innerHTML = `<div class="child-status yellow"><strong>Contact a qualified health worker for advice.</strong><br>Monitor drinking/feeding, urination, breathing and alertness. Seek prompt care if symptoms worsen, persist, the child is very young, or you are worried. Do not give medicines or antibiotics without appropriate clinical advice.</div>`;
+            }
+        }
+        function startChildEmergency() {
+            const age = document.getElementById("emergencyChildAge").value;
+            const symptoms = document.getElementById("emergencyChildSymptoms").value.trim();
+            if (age === "" || !symptoms) { showToast("Enter the child's age and symptoms first."); return; }
+            const summary = document.getElementById("childEmergencySummary");
+            summary.style.display = "block";
+            summary.textContent = "Child emergency details (demo): age " + age + " months; symptoms: " + symptoms + ". This information has not been sent to emergency services.";
+            showPage("ambulance");
+        }
+        document.addEventListener("DOMContentLoaded", renderChildren);
+
+
+        /* ================================
+           HINDI / ENGLISH LANGUAGE SWITCH
+        ================================= */
+
+        let currentLanguage = "en";
+
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {
+                    pageLanguage: "en",
+                    includedLanguages: "en,hi",
+                    autoDisplay: false
+                },
+                "google_translate_element"
+            );
+        }
+
+        function toggleLanguage() {
+
+            const button = document.getElementById("languageBtn");
+            const select = document.querySelector(".goog-te-combo");
+
+            if (!select) {
+                if (typeof showToast === "function") {
+                    showToast("Translation is loading. Please try again.");
+                } else {
+                    alert("Translation is still loading. Please try again.");
+                }
+                return;
+            }
+
+            // Read the actual selected language instead of relying
+            // on a separate variable that can become out of sync.
+            const targetLanguage =
+                select.value === "hi" ? "en" : "hi";
+
+            select.value = targetLanguage;
+            select.dispatchEvent(new Event("change", {bubbles: true}));
+
+            button.textContent =
+                targetLanguage === "hi"
+                    ? "🌐 View in English"
+                    : "🌐 हिंदी में देखें";
+        }
+
+        
+
+    </script>
+
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>
 
 
 </body>
